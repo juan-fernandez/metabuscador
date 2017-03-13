@@ -3,12 +3,12 @@ state = {
     navbar_items:[
         {
             id: "1",
-            text: "Espacios",
+            text: "Calendario",
             selected: true
         },
         {
             id: "2",
-            text: "Otros",
+            text: "Datos Personales",
             selected: false
         }
     ]

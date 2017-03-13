@@ -40,7 +40,7 @@ export default class Calendar extends React.Component{
 
         const {events} = this.props.events;
         const style={
-            width:'80%'
+            
         }
         const {calendar} = this.refs;
         $(calendar).fullCalendar('destroy');

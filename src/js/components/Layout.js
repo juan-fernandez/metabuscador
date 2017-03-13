@@ -62,11 +62,12 @@ export default class Layout extends React.Component {
             right                 : 'auto',
             bottom                : 'auto',
             marginRight           : '-50%',
-            transform             : 'translate(-50%, -50%)'
+            transform             : 'translate(-50%, -50%)',
+            width                 : '30%'
          }
       };
       const padding_navbarhor = {
-         paddingTop: '40px'
+         paddingTop: '30px'
       }
 
 
@@ -93,7 +94,7 @@ export default class Layout extends React.Component {
                     onRequestClose={this.closeModal.bind(this)}
                     contentLabel="Modal"
                 >
-                    <h1>Estás seguro?</h1>
+                    <h1>Borrar evento</h1>
                     <button onClick={this.removeEvent.bind(this)} type="button" class="btn btn-default">Borrar evento</button>
                 </Modal>
 
@@ -105,12 +106,14 @@ export default class Layout extends React.Component {
                 <Navbarhor>
                 </Navbarhor>
 
+                <div class="row">
                 <Navbar selected={selected[0].id} items={navbar_items} onClick={this.changeView.bind(this)}>
                 </Navbar>
 
 
                 <MainPanel moveEvent={this.moveEvent.bind(this)} clickEvent={this.clickEvent.bind(this)} addEvent={this.addEvent.bind(this)} selected={selected[0].id}>
                 </MainPanel>
+                </div>
 
 
             </div>

@@ -15,7 +15,7 @@ export default class Navbar extends React.Component{
 
 
         return(
-            <div style={style} class="col-xs-4 col-sm-2 col-md-1 col-lg-1">
+            <div style={style} class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
                 <div class="list-group">
                     {list}
                 </div>
