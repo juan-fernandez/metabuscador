@@ -6,3 +6,11 @@ export function changeView(target_id){
         }
     }
 }
+export function addEvent(date){
+    return {
+        type: "ADD_EVENT",
+        payload:{
+            date
+        }
+    }
+}
