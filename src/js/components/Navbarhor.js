@@ -7,7 +7,7 @@ export default class Navbarhor extends React.Component{
          <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                <div class="navbar-header">
-                  <a class="navbar-brand" href="#">Metabuscador</a>
+                  <Link to="/"><a class="navbar-brand">Metabuscador</a></Link>
                </div>
                <ul class="nav navbar-nav">
                   <li><Link to="/">Area de Usuario</Link></li>
