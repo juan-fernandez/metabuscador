@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from 'react-router-dom'
 
 export default class Navbarhor extends React.Component{
    render(){
@@ -9,8 +10,8 @@ export default class Navbarhor extends React.Component{
                   <a class="navbar-brand" href="#">Metabuscador</a>
                </div>
                <ul class="nav navbar-nav">
-                  <li><a href="#">Area de Usuario</a></li>
-                  <li><a href="#">Buscador</a></li>
+                  <li><Link to="/">Area de Usuario</Link></li>
+                  <li><Link to="/buscador">Buscador</Link></li>
                </ul>
             </div>
          </nav>
