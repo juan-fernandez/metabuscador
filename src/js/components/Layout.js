@@ -94,7 +94,7 @@ export default class Layout extends React.Component {
 
 
 
-                <Header text="User Area">
+                <Header text="Área de Usuario">
                 </Header>
 
                 <Navbar selected={selected[0].id} items={navbar_items} onClick={this.changeView.bind(this)}>

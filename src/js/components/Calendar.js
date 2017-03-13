@@ -27,7 +27,8 @@ export default class Calendar extends React.Component{
                 },
                 eventDrop: (calEvent,delta)=>{
                     this.props.moveEvent(calEvent.date,delta)
-                }
+                },
+                locale:'es',
         })
     }
     componentWillUnmount(){
@@ -60,7 +61,8 @@ export default class Calendar extends React.Component{
                 },
                 eventDrop: (calEvent,delta)=>{
                     this.props.moveEvent(calEvent.date,delta)
-                }
+                },
+                locale:'es',
         })
         return(
             <div style={style} ref="calendar">
