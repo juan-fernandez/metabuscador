@@ -8,8 +8,7 @@ export default class MainPanel extends React.Component{
             left: '9%',
             width: '92%',
         }
-        const {events,selected,addEvent} = this.props;
-        console.log("main panel events:",events)
+        const {selected,addEvent} = this.props;
 
         const shown = selected === '1' ? <Calendar addEvent={addEvent}/>:"Otros"
         return(
