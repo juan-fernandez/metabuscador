@@ -18,7 +18,7 @@ export default class Calendar extends React.Component{
         		},
         		editable: true,
                 events: this.props.events,
-                height: 650,
+                height: 450,
                 dayClick: (date, jsEvent, view)=>{
                     this.props.addEvent(date);
                 },
@@ -52,7 +52,7 @@ export default class Calendar extends React.Component{
         		},
         		editable: true,
                 events: this.props.events,
-                height: 650,
+                height: 450,
                 dayClick: (date, jsEvent, view)=>{
                     this.props.addEvent(date);
                 },

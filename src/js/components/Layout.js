@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import Header from "./Header"
 import Navbar from "./Navbar"
 import MainPanel from "./MainPanel"
+import Navbarhor from "./Navbarhor"
 
 import {changeView} from "../actions/spacesActions"
 
@@ -48,26 +49,30 @@ export default class Layout extends React.Component {
     }
 
 
-    render() {
-        const {spaces,events} = this.props;
-        const {navbar_items} = spaces;
-        const selected = navbar_items.filter((item)=>{
-            return item.selected === true;
-        })
-        const modal_style = {
-                  content : {
-                    top                   : '50%',
-                    left                  : '50%',
-                    right                 : 'auto',
-                    bottom                : 'auto',
-                    marginRight           : '-50%',
-                    transform             : 'translate(-50%, -50%)'
-                  }
-          };
+   render() {
+      const {spaces,events} = this.props;
+      const {navbar_items} = spaces;
+      const selected = navbar_items.filter((item)=>{
+      return item.selected === true;
+      })
+      const modal_style = {
+         content : {
+            top                   : '50%',
+            left                  : '50%',
+            right                 : 'auto',
+            bottom                : 'auto',
+            marginRight           : '-50%',
+            transform             : 'translate(-50%, -50%)'
+         }
+      };
+      const padding_navbarhor = {
+         paddingTop: '40px'
+      }
+
 
         return(
 
-            <div class="page-container">
+            <div style={padding_navbarhor} class="page-container">
                 <Modal // add event
                     style={modal_style}
                     isOpen={events.adding_event}
@@ -97,8 +102,13 @@ export default class Layout extends React.Component {
                 <Header text="Área de Usuario">
                 </Header>
 
+                <Navbarhor>
+                </Navbarhor>
+
                 <Navbar selected={selected[0].id} items={navbar_items} onClick={this.changeView.bind(this)}>
                 </Navbar>
+
+
                 <MainPanel moveEvent={this.moveEvent.bind(this)} clickEvent={this.clickEvent.bind(this)} addEvent={this.addEvent.bind(this)} selected={selected[0].id}>
                 </MainPanel>
 
