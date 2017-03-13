@@ -26,3 +26,26 @@ export function new_event(){
         type: "NEW_EVENT"
     }
 }
+
+export function clickEvent(event_date){
+    return {
+        type: "CLICK_EVENT",
+        payload:{
+            event_date
+        }
+    }
+}
+export function removeEvent(){
+    return {
+        type: "REMOVE_EVENT",
+    }
+}
+export function moveEvent(event_date,delta){
+    return {
+        type: "MOVE_EVENT",
+        payload: {
+            event_date,
+            delta
+        }
+    }
+}

@@ -6,7 +6,7 @@ import MainPanel from "./MainPanel"
 
 import {changeView} from "../actions/spacesActions"
 
-import {addEvent, closeModal, updateSpace, new_event} from "../actions/eventsActions"
+import {addEvent, closeModal, updateSpace, new_event, clickEvent, removeEvent, moveEvent} from "../actions/eventsActions"
 
 import Modal from "react-modal"
 
@@ -35,10 +35,21 @@ export default class Layout extends React.Component {
     updateSpace(ev){
         this.props.dispatch(updateSpace(ev.target.value))
     }
+    clickEvent(date){
+        //console.log("clicked date: ",date)
+        this.props.dispatch(clickEvent(date))
+    }
+    removeEvent(){
+        this.props.dispatch(removeEvent());
+    }
+    moveEvent(date,delta){
+        //console.log("move event", calEvent,delta)
+        this.props.dispatch(moveEvent(date,delta))
+    }
+
 
     render() {
         const {spaces,events} = this.props;
-        console.log("layout events:",events)
         const {navbar_items} = spaces;
         const selected = navbar_items.filter((item)=>{
             return item.selected === true;
@@ -57,7 +68,7 @@ export default class Layout extends React.Component {
         return(
 
             <div class="page-container">
-                <Modal
+                <Modal // add event
                     style={modal_style}
                     isOpen={events.adding_event}
                     onRequestClose={this.closeModal.bind(this)}
@@ -70,12 +81,25 @@ export default class Layout extends React.Component {
                     </div>
                     <button onClick={this.newEvent.bind(this)} type="button" class="btn btn-default">Añadir</button>
                 </Modal>
+
+                <Modal  // remove event
+                    style={modal_style}
+                    isOpen={events.removing_event}
+                    onRequestClose={this.closeModal.bind(this)}
+                    contentLabel="Modal"
+                >
+                    <h1>Estás seguro?</h1>
+                    <button onClick={this.removeEvent.bind(this)} type="button" class="btn btn-default">Borrar evento</button>
+                </Modal>
+
+
+
                 <Header text="User Area">
                 </Header>
 
                 <Navbar selected={selected[0].id} items={navbar_items} onClick={this.changeView.bind(this)}>
                 </Navbar>
-                <MainPanel addEvent={this.addEvent.bind(this)} selected={selected[0].id}>
+                <MainPanel moveEvent={this.moveEvent.bind(this)} clickEvent={this.clickEvent.bind(this)} addEvent={this.addEvent.bind(this)} selected={selected[0].id}>
                 </MainPanel>
 
 

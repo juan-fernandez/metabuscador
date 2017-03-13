@@ -9,7 +9,6 @@ import { connect } from "react-redux"
 export default class Calendar extends React.Component{
 
     componentDidMount() {
-        console.log("didmount");
         const {calendar} = this.refs;
         $(calendar).fullCalendar({
         		header: {
@@ -22,6 +21,12 @@ export default class Calendar extends React.Component{
                 height: 650,
                 dayClick: (date, jsEvent, view)=>{
                     this.props.addEvent(date);
+                },
+                eventClick: (calEvent)=>{
+                    this.props.clickEvent(calEvent.date)
+                },
+                eventDrop: (calEvent,delta)=>{
+                    this.props.moveEvent(calEvent.date,delta)
                 }
         })
     }
@@ -49,6 +54,12 @@ export default class Calendar extends React.Component{
                 height: 650,
                 dayClick: (date, jsEvent, view)=>{
                     this.props.addEvent(date);
+                },
+                eventClick: (calEvent)=>{
+                    this.props.clickEvent(calEvent.date)
+                },
+                eventDrop: (calEvent,delta)=>{
+                    this.props.moveEvent(calEvent.date,delta)
                 }
         })
         return(
