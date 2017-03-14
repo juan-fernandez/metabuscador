@@ -1,6 +1,6 @@
 import React from "react"
 import Calendar from "./Calendar"
-import PersonalData from "./PersonalData"
+import Planner from "./Planner"
 
 export default class MainPanel extends React.Component{
     render(){
@@ -13,7 +13,7 @@ export default class MainPanel extends React.Component{
 
         const shown = selected === '1' ?
             <Calendar moveEvent={moveEvent} clickEvent={clickEvent} addEvent={addEvent}/>:
-            <PersonalData></PersonalData>
+            <Planner></Planner>
         return(
             <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10" style={style}>
                 {shown}

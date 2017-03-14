@@ -34,13 +34,12 @@ export default class Calendar extends React.Component{
     componentWillUnmount(){
         const {calendar} = this.refs;
         $(calendar).fullCalendar('destroy');
-        console.log("unmount");
     }
     render(){
 
         const {events} = this.props.events;
         const style={
-            
+
         }
         const {calendar} = this.refs;
         $(calendar).fullCalendar('destroy');
