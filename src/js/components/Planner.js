@@ -25,16 +25,13 @@ export default class Planner extends React.Component{
             data.tableHeader.push([date_from.getDate()+'-'+(date_from.getMonth()+1)+'-'+date_from.getFullYear()]);
             date_from.setDate(date_from.getDate()+1)
         }
-
         data.from = "";
-
-
         data.rows = events.events.map((event)=>{
             return {
                 rowHeader: '<h2 class="table-h"><a href="#">'+event.title+'</a></h2>',
                 rowVal:event.properties.map((property)=>{
-                    return data.tableHeader.map((item)=>{
-                        return 'x'
+                    return data.tableHeader.map((item,index)=>{
+                        return '<span id='+data.tableHeader[index]+'>'+data.tableHeader[index]+'</span>'
                     })
                 }),
                 rowDesc: event.properties
@@ -51,11 +48,9 @@ export default class Planner extends React.Component{
 
     }
     render(){
-        const style={
 
-        }
         return(
-            <div class="tabella-ctr" style={style} ref="tabella">
+            <div class="tabella-ctr" ref="tabella">
             </div>
         )
     }
