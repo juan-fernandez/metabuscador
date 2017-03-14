@@ -5,23 +5,30 @@ state = {
             title: "Sala de eventos 1" ,
             date: new Date(2017,2,13),
             allDay: true,
+            properties: ['Sala completa']
         },
         {
             title: "Aula Magna" ,
             date: new Date(2017,2,14),
             allDay: true,
+            properties: ['Con material audiovisual', 'Sin material audiovisual']
         },
         {
             title: "Anfiteatro" ,
             date: new Date(2017,2,14),
             allDay: true,
+            properties: ['Sala completa']
         },
     ],
     adding_event: false, // flag to show modal
     space_name: "",
     date_new_event: null,
     clicked_event: -1,
-    removing_event: false //flag to show modal to remove
+    removing_event: false, //flag to show modal to remove
+    date_range: {
+        from:'2017-03-01 0:00',
+        to:'2017-03-30 0:00'
+    }
 },
 action)
 {

@@ -8,7 +8,7 @@ state = {
         },
         {
             id: "2",
-            text: "Espacios",
+            text: "Tus espacios",
             selected: false
         }
     ]
