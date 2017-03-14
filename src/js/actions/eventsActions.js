@@ -49,3 +49,11 @@ export function moveEvent(event_date,delta){
         }
     }
 }
+export function toggleEvent(id){
+   return {
+      type: "TOGGLE_EVENT",
+      payload: {
+         id
+      }
+   }
+}

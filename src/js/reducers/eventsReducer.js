@@ -28,7 +28,8 @@ state = {
     date_range: {
         from:'2017-03-01 0:00',
         to:'2017-03-30 0:00'
-    }
+    },
+    active_events: [],
 },
 action)
 {
@@ -108,6 +109,29 @@ action)
             }
 
         }
+      case "TOGGLE_EVENT":{
+         console.log("reducer:",action.payload)
+         let found = false;
+         let filtered = state.active_events.filter((event_id)=>{
+            if(event_id == action.payload.id){
+               found = true;
+               return false
+            }
+            return true;
+         })
+         if(!found){
+            filtered = [
+               ...state.active_events,
+               action.payload.id
+            ]
+         }
+         console.log(filtered)
+         return {
+            ...state,
+            active_events: filtered
+         }
+
+      }
     }
 
     return state

@@ -11,7 +11,7 @@ import { connect } from "react-redux"
 export default class Planner extends React.Component{
     componentDidMount() {
         const {tabella} = this.refs;
-        const {events} = this.props;
+        const {events,clickEvent} = this.props;
 
         var data = {};
         data.tableHeader = [];
@@ -19,7 +19,6 @@ export default class Planner extends React.Component{
         var to = events.date_range.to;
         var date_from = new Date(from);
         var date_to = new Date(to)
-        var da = 100;
 
         while(date_from.getTime() != date_to.getTime()){
             data.tableHeader.push([date_from.getDate()+'-'+(date_from.getMonth()+1)+'-'+date_from.getFullYear()]);
@@ -43,22 +42,48 @@ export default class Planner extends React.Component{
         hotelrowVal.refreshSize();
 
         document.querySelectorAll('span').forEach((element)=>{
+            let container = element.parentElement.parentElement.parentElement;
             //console.log(element.parentElement.parentElement)
-            element.parentElement.parentElement.addEventListener('click',(event)=>{
-                console.log("clicked:",event.target)
+            container.addEventListener('click',(event)=>{
+                clickEvent(element.id);
+                /*if(element.parentElement.parentElement.parentElement.style.backgroundColor == 'rgb(233, 196, 196)'){
+                   element.parentElement.parentElement.parentElement.style.backgroundColor = 'rgb(197, 202, 233)';
+                }else{
+                   element.parentElement.parentElement.parentElement.style.backgroundColor = 'rgb(233, 196, 196)';
+                }*/
             })
         })
-    }
-    componentWillUnmount(){
-        const {tabella} = this.refs;
 
     }
-    render(){
+   componentWillReceiveProps(nextProps){
+      const {events,clickEvent} = nextProps;
+      document.querySelectorAll('span').forEach((element)=>{
+          let container = element.parentElement.parentElement.parentElement;
+          //console.log(element.parentElement.parentElement)
+          if(element.id%2==0){
+             container.style.backgroundColor = 'rgb(197, 202, 233)'
+          }else{
+             container.style.backgroundColor = 'rgb(159, 168, 218)'
+          }
+      })
+      events.active_events.map((event_id)=>{
+         // rgb(159, 168, 218) oscuras
+         // rgb(197, 202, 233) claras
+         // rgb(233, 196, 196) seleccionadas
+         let container = document.getElementById(event_id).parentElement.parentElement.parentElement;
+         container.style.backgroundColor = 'rgb(233, 196, 196)';      
+      })
+   }
+   componentWillUnmount(){
+      const {tabella} = this.refs;
+
+   }
+   render(){
 
 
-        return(
-            <div class="tabella-ctr" ref="tabella">
-            </div>
-        )
-    }
+      return(
+         <div class="tabella-ctr" ref="tabella">
+         </div>
+      )
+   }
 }

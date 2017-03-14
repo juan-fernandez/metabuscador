@@ -7,7 +7,14 @@ import Navbarhor from "./Navbarhor"
 
 import {changeView} from "../actions/spacesActions"
 
-import {addEvent, closeModal, updateSpace, new_event, clickEvent, removeEvent, moveEvent} from "../actions/eventsActions"
+import {addEvent,
+      closeModal,
+      updateSpace,
+      new_event,
+      clickEvent,
+      removeEvent,
+      moveEvent,
+      toggleEvent} from "../actions/eventsActions"
 
 import Modal from "react-modal"
 
@@ -20,34 +27,36 @@ import Modal from "react-modal"
 })
 export default class Layout extends React.Component {
 
-    changeView(event){
-        this.props.dispatch(changeView(event.target.id))
-    }
-    addEvent(date){
-        this.props.dispatch(addEvent(date))
-    }
-    closeModal(event){
-        this.props.dispatch(closeModal())
-    }
-    newEvent(){
-        this.props.dispatch(new_event())
-        this.props.dispatch(closeModal())
-    }
-    updateSpace(ev){
-        this.props.dispatch(updateSpace(ev.target.value))
-    }
-    clickEvent(date){
-        //console.log("clicked date: ",date)
-        this.props.dispatch(clickEvent(date))
-    }
-    removeEvent(){
-        this.props.dispatch(removeEvent());
-    }
-    moveEvent(date,delta){
-        //console.log("move event", calEvent,delta)
-        this.props.dispatch(moveEvent(date,delta))
-    }
-
+   changeView(event){
+      this.props.dispatch(changeView(event.target.id))
+   }
+   addEvent(date){
+      this.props.dispatch(addEvent(date))
+   }
+   closeModal(event){
+      this.props.dispatch(closeModal())
+   }
+   newEvent(){
+      this.props.dispatch(new_event())
+      this.props.dispatch(closeModal())
+   }
+   updateSpace(ev){
+      this.props.dispatch(updateSpace(ev.target.value))
+   }
+   clickEvent(date){
+      //console.log("clicked date: ",date)
+      this.props.dispatch(clickEvent(date))
+   }
+   removeEvent(){
+      this.props.dispatch(removeEvent());
+   }
+   moveEvent(date,delta){
+      //console.log("move event", calEvent,delta)
+      this.props.dispatch(moveEvent(date,delta))
+   }
+   toggleEvent(id){
+      this.props.dispatch(toggleEvent(id));
+   }
 
    render() {
       const {spaces,events} = this.props;
@@ -111,7 +120,7 @@ export default class Layout extends React.Component {
                 </Navbar>
 
 
-                <MainPanel moveEvent={this.moveEvent.bind(this)} clickEvent={this.clickEvent.bind(this)} addEvent={this.addEvent.bind(this)} selected={selected[0].id}>
+                <MainPanel clickPlanner={this.toggleEvent.bind(this)} moveEvent={this.moveEvent.bind(this)} clickEvent={this.clickEvent.bind(this)} addEvent={this.addEvent.bind(this)} selected={selected[0].id}>
                 </MainPanel>
                 </div>
 
