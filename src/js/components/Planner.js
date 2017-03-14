@@ -26,12 +26,12 @@ export default class Planner extends React.Component{
             date_from.setDate(date_from.getDate()+1)
         }
         data.from = "";
-        data.rows = events.events.map((event)=>{
+        data.rows = events.events.map((event,index_row)=>{
             return {
-                rowHeader: '<h2 class="table-h"><a href="#">'+event.title+'</a></h2>',
-                rowVal:event.properties.map((property)=>{
-                    return data.tableHeader.map((item,index)=>{
-                        return '<span id='+data.tableHeader[index]+'>'+data.tableHeader[index]+'</span>'
+                rowHeader: '<h2 class="table-h"><a>'+event.title+'</a></h2>',
+                rowVal:event.properties.map((property,index_prop)=>{
+                    return data.tableHeader.map((item,index_col)=>{
+                        return '<span id='+index_row+index_prop+index_col+'>x</span>'
                     })
                 }),
                 rowDesc: event.properties
@@ -42,12 +42,19 @@ export default class Planner extends React.Component{
             tabella, data);
         hotelrowVal.refreshSize();
 
+        document.querySelectorAll('span').forEach((element)=>{
+            //console.log(element.parentElement.parentElement)
+            element.parentElement.parentElement.addEventListener('click',(event)=>{
+                console.log("clicked:",event.target)
+            })
+        })
     }
     componentWillUnmount(){
         const {tabella} = this.refs;
 
     }
     render(){
+
 
         return(
             <div class="tabella-ctr" ref="tabella">
