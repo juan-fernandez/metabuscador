@@ -26,7 +26,8 @@ state = {
                     precio: 3000,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner11sala-sinfonica.jpg"
             },
             {
                     nombre: "Sala Dorsal",
@@ -46,7 +47,8 @@ state = {
                     precio: 1500,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Sala de cámara",
@@ -63,7 +65,8 @@ state = {
                     precio: 1500,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Sala de Conferencias 1",
@@ -80,7 +83,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Sala de Conferencias 2 (con pupitre)",
@@ -97,7 +101,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Sala de Conferencias 3",
@@ -114,7 +119,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Sala de Prensa",
@@ -131,7 +137,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Sala Multifuncional 1",
@@ -148,7 +155,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Sala de Multifuncional 2",
@@ -165,7 +173,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Sala de Multifuncional 3",
@@ -182,7 +191,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Camerino individual",
@@ -199,7 +209,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Camerino Doble",
@@ -216,7 +227,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Camerino Colectivo",
@@ -233,7 +245,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Guardarropía",
@@ -250,7 +263,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
             {
                     nombre: "Sala de Exposiciones Lienzo Norte",
@@ -267,7 +281,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner12sala-de-exposiciones.jpg"
             },
             {
                     nombre: "Exposición en Zonas Comunes",
@@ -284,7 +299,8 @@ state = {
                     precio: 0,
                     servicios: [
                         ''
-                    ]
+                    ],
+                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
             },
     ],
     date_range: {

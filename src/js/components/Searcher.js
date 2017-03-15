@@ -8,7 +8,7 @@ import Header from "./Header"
 
 import {Autosize, Autocomplete, Dropdown, Mask, DatePicker, Combobox } from "react-input-enhancements"
 
-import {FormGroup, Col, FormControl} from "react-bootstrap"
+import {FormGroup, Col, FormControl, Carousel} from "react-bootstrap"
 
 import {searchSpace} from "../actions/spacesActions"
 
@@ -31,9 +31,18 @@ export default class Searcher extends React.Component {
         const {searched_space} = this.props.spaces;
         const {espacios} = this.props.events;
 
-        const list_results = espacios.map((espacio,index)=>
+        /*const list_results = espacios.map((espacio,index)=>
             <Space key={index} info={espacio}/>
+        )*/
+        const list_results = espacios.map((espacio,index)=>
+            <Carousel.Item key={index}>
+                        <img width={1140} height={450} alt="1140x450" src={espacio.imagen}/>
+                        <Carousel.Caption>
+                            <h3>{espacio.nombre.charAt(0).toUpperCase()+espacio.nombre.slice(1)}</h3>
+                        </Carousel.Caption>
+            </Carousel.Item>
         )
+
 
 
         const padding_navbarhor = {
@@ -192,7 +201,7 @@ export default class Searcher extends React.Component {
                </div>
 
             </div>
-            {searched_space? list_results:""}
+            {searched_space? <Col xs={12} md={6} mdOffset={3}><Carousel>{list_results}</Carousel></Col>:""}
 
 
 
