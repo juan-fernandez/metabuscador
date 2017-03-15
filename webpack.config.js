@@ -20,8 +20,8 @@ module.exports = {
     ]
   },
   output: {
-    //path: __dirname + "/src/",
-    path: "W:/htdocs/upload-timesheet",
+    path: __dirname + "/src/",
+    //path: "W:/htdocs/upload-timesheet",
     filename: "client.min.js"
   },
   plugins: debug ? [] : [
