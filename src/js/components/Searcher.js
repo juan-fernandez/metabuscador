@@ -14,6 +14,7 @@ import {searchSpace} from "../actions/spacesActions"
 
 import Space from "./Space"
 
+import Footer from "./Footer"
 
 import {Link} from 'react-router-dom'
 
@@ -196,10 +197,21 @@ export default class Searcher extends React.Component {
                          </Col>
                      </Row>
                  </Well>
-
+               {
+                  searched_space?
+                     <Row>
+                        <Col xs={12} sm={12} md={12} xsOffset={0} smOffset={0} mdOffset={0}>
+                           <Carousel>
+                              {list_results}
+                           </Carousel>
+                        </Col>
+                        </Row>
+                        :""}
+                  <Footer>
+                  </Footer>
              </Grid>
 
-            {searched_space? <Col xs={12} md={6} mdOffset={3}><Carousel>{list_results}</Carousel></Col>:""}
+
 
 
 
