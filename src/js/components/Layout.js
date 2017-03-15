@@ -76,7 +76,7 @@ export default class Layout extends React.Component {
          }
       };
       const padding_navbarhor = {
-         paddingTop: '30px'
+         paddingTop: '0px'
       }
 
 
@@ -107,13 +107,13 @@ export default class Layout extends React.Component {
                     <button onClick={this.removeEvent.bind(this)} type="button" class="btn btn-default">Borrar evento</button>
                 </Modal>
 
-
+                <Navbarhor>
+                </Navbarhor>
 
                 <Header text="Área de Usuario">
                 </Header>
 
-                <Navbarhor>
-                </Navbarhor>
+
 
                 <div class="row">
                 <Navbar selected={selected[0].id} items={navbar_items} onClick={this.changeView.bind(this)}>

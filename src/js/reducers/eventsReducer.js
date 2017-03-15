@@ -25,6 +25,287 @@ state = {
     date_new_event: null,
     clicked_event: -1,
     removing_event: false, //flag to show modal to remove
+    espacios: [
+            {
+                    nombre: "Sala Sinfónica",
+                    superficie: 722.25,
+                    altura: {
+                                a1: 6.58,
+                                a2:9.36,
+                                a3: 12
+                            },
+                    largo_ancho: [35.14,25.73,17.60],
+                    aforo: {
+                            teatro:{
+                                platea: 910,
+                                filas_foso: 48,
+                                palcos:24
+                                }
+                        },
+                    precio: 3000,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Sala Dorsal",
+                    superficie: 271.77,
+                    altura: {
+                                a1: 6.13,
+                                a2:10.39,
+                                a3: 8.33
+                            },
+                    largo_ancho: [14.04,22.30,19.50],
+                    aforo: {
+                            teatro:{
+                                platea: 384,
+                                palcos: 10,
+                                }
+                        },
+                    precio: 1500,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Sala de cámara",
+                    superficie: "327.82",
+                    altura: {
+                                a1: "6.81",
+                                a2:"11.55",
+                                a3: "11.55"
+                            },
+                    largo_ancho: [21.36,17.68,16.00],
+                    aforo: {
+                            teatro:427
+                        },
+                    precio: 1500,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Sala de Conferencias 1",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Sala de Conferencias 2 (con pupitre)",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Sala de Conferencias 3",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Sala de Prensa",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Sala Multifuncional 1",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Sala de Multifuncional 2",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Sala de Multifuncional 3",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Camerino individual",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Camerino Doble",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Camerino Colectivo",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Guardarropía",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Sala de Exposiciones Lienzo Norte",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+            {
+                    nombre: "Exposición en Zonas Comunes",
+                    superficie: "",
+                    altura: {
+                                a1: "",
+                                a2:"",
+                                a3: ""
+                            },
+                    largo_ancho: [0,0,0],
+                    aforo: {
+                            teatro:0
+                        },
+                    precio: 0,
+                    servicios: [
+                        ''
+                    ]
+            },
+    ],
     date_range: {
         from:'2017-03-01 0:00',
         to:'2017-03-30 0:00'

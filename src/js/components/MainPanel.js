@@ -5,8 +5,7 @@ import Planner from "./Planner"
 export default class MainPanel extends React.Component{
     render(){
         const style = {
-            position: 'fixed',
-            left: '15%',
+            left: '16%',
 
         }
         const {selected,addEvent, clickEvent, moveEvent, clickPlanner} = this.props;

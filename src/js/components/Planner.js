@@ -25,10 +25,10 @@ export default class Planner extends React.Component{
             date_from.setDate(date_from.getDate()+1)
         }
         data.from = "";
-        data.rows = events.events.map((event,index_row)=>{
+        data.rows = events.espacios.map((espacio,index_row)=>{
             return {
-                rowHeader: '<h2 class="table-h"><a>'+event.title+'</a></h2>',
-                rowVal:event.properties.map((property,index_prop)=>{
+                rowHeader: '<h2 class="table-h"><a>'+espacio.nombre+'</a></h2>',
+                rowVal:espacio.servicios.map((servicio,index_prop)=>{
                     return data.tableHeader.map((item,index_col)=>{
                         return '<span id='+index_row+index_prop+index_col+'>x</span>'
                     })
@@ -71,7 +71,7 @@ export default class Planner extends React.Component{
          // rgb(197, 202, 233) claras
          // rgb(233, 196, 196) seleccionadas
          let container = document.getElementById(event_id).parentElement.parentElement.parentElement;
-         container.style.backgroundColor = 'rgb(233, 196, 196)';      
+         container.style.backgroundColor = 'rgb(233, 196, 196)';
       })
    }
    componentWillUnmount(){
