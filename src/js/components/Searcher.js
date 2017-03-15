@@ -20,6 +20,7 @@ import {Link} from 'react-router-dom'
 
 import {moment} from 'moment'
 
+import { DayPicker } from 'react-date-picker'
 
 
 @connect((store) => {
@@ -187,6 +188,7 @@ export default class Searcher extends React.Component {
                                      moment(parseInt(v, 10)).format('ddd DD/MM/YYYY') : v
                                    }
                                    locale='es'
+                                   
                                  >
 
                                    {(inputProps, otherProps,registerInput ) =>

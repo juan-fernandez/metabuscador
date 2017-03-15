@@ -15,12 +15,12 @@ export default class Space extends React.Component {
         return(
             <Row>
                <Panel header={info.nombre}>
-                  <Col xs={8} sm={8} md={8}>
+                  <Col xs={12} sm={12} md={8} lg={8}>
                      <Carousel>
                         {carousel}
                      </Carousel>
                   </Col>
-                  <Col xs={4} sm={4} md={4}>
+                  <Col xs={12} sm={12} md={4} lg={4}>
                      <Well>
                         <h3>{info.nombre}</h3>
                         <h3>Superficie: {info.superficie} m2</h3>
