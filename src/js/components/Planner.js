@@ -12,7 +12,7 @@ export default class Planner extends React.Component{
     componentDidMount() {
         const {tabella} = this.refs;
         const {events,clickEvent} = this.props;
-
+        console.log("did mount")
         var data = {};
         data.tableHeader = [];
         var from = events.date_range.from;
@@ -29,13 +29,16 @@ export default class Planner extends React.Component{
             return {
                 rowHeader: '<h2 class="table-h"><a>'+espacio.nombre+'</a></h2>',
                 rowVal:espacio.servicios.map((servicio,index_prop)=>{
+
                     return data.tableHeader.map((item,index_col)=>{
                         return '<span id='+index_row+'-'+index_prop+'-'+index_col+'>x</span>'
                     })
                 }),
-                rowDesc: event.properties
+                rowDesc: espacio.servicios
             }
         })
+
+
 
         var hotelrowVal = new Tabella(
             tabella, data);
@@ -58,6 +61,7 @@ export default class Planner extends React.Component{
     }
    componentWillReceiveProps(nextProps){
       const {events,clickEvent} = nextProps;
+      console.log("props")
       document.querySelectorAll('span').forEach((element)=>{
           let container = element.parentElement.parentElement.parentElement;
           //console.log(element.parentElement.parentElement)
@@ -78,7 +82,7 @@ export default class Planner extends React.Component{
    }
    componentWillUnmount(){
       const {tabella} = this.refs;
-
+      console.log("un mount")
    }
    render(){
 

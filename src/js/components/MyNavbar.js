@@ -1,11 +1,10 @@
 import React from "react"
 
-export default class Navbar extends React.Component{
+export default class MyNavbar extends React.Component{
 
     render(){
         const style={
-            height: '100%',
-            position: 'fixed'
+
         }
         const {items,onClick,selected} = this.props;
 
@@ -15,7 +14,7 @@ export default class Navbar extends React.Component{
 
 
         return(
-            <div style={style} class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+            <div>
                 <div class="list-group">
                     {list}
                 </div>

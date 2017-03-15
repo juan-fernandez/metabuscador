@@ -5,7 +5,6 @@ import Planner from "./Planner"
 export default class MainPanel extends React.Component{
     render(){
         const style = {
-            left: '16%',
 
         }
         const {selected,addEvent, clickEvent, moveEvent, clickPlanner} = this.props;
@@ -14,7 +13,7 @@ export default class MainPanel extends React.Component{
             <Calendar moveEvent={moveEvent} clickEvent={clickEvent} addEvent={addEvent}/>:
             <Planner clickEvent={clickPlanner}></Planner>
         return(
-            <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10" style={style}>
+            <div style={style}>
                 {shown}
             </div>
         )

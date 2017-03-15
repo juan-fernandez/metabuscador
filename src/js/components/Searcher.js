@@ -8,12 +8,14 @@ import Header from "./Header"
 
 import {Autosize, Autocomplete, Dropdown, Mask, DatePicker, Combobox } from "react-input-enhancements"
 
-import {FormGroup, Col, FormControl, Carousel} from "react-bootstrap"
+import {FormGroup, Col, FormControl, Carousel, Navbar, Nav, NavItem, Grid, Row, Well} from "react-bootstrap"
 
 import {searchSpace} from "../actions/spacesActions"
 
 import Space from "./Space"
 
+
+import {Link} from 'react-router-dom'
 
 @connect((store) => {
     return {
@@ -142,65 +144,83 @@ export default class Searcher extends React.Component {
         ]
 
       return(
-         <div style={padding_navbarhor} class="page-container">
-            <Navbarhor>
-            </Navbarhor>
-            <Header text="Buscador">
+         <div>
+             <Grid>
+                 <Navbar inverse>
+                         <Navbar.Header>
+                             <Navbar.Brand>
+                                 <a>Micelocator</a>
+                             </Navbar.Brand>
+                         </Navbar.Header>
+                         <Navbar.Collapse>
+                             <Nav>
+                                 <NavItem eventKey={1}>
+                                         <Link to="/">
+                                             Area de Usuario
+                                         </Link>
+                                 </NavItem>
+                                 <NavItem eventKey={2}>
+                                         <Link to="/buscador">
+                                             Buscador
+                                         </Link>
+                                 </NavItem>
+                             </Nav>
+                         </Navbar.Collapse>
+                 </Navbar>
+                 <Header text="Buscador">
 
-            </Header>
+                 </Header>
 
-            <div class="well">
-               <div class="row">
-                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                     <label for="event_type">¿Qué evento quieres organizar?</label>
+                 <Well>
+                     <Row>
+                         <Col xs={12} sm={4} md={4} lg={4}>
+                            <label for="event_type">¿Qué evento quieres organizar?</label>
+                            <FormGroup>
+                                <Combobox
+                                    options={event_type}
+                                    dropdownProps={{style:{width:'100%'}}}
+                                    autocomplete
+                                    autosize
+                                    >
+                                    {(inputProps,otherProps,registerInput)=>
+                                        <FormControl
+                                            {...inputProps}
+                                            ref={c=>registerInput(ReactDOM.findDOMNode(c))}
+                                            type='text'
+                                            placeholder='Elige el tipo de evento'>
+                                        </FormControl>
+                                    }
+                                </Combobox>
+                            </FormGroup>
+                         </Col>
+                         <Col xs={12} sm={4} md={4} lg={4}>
+                            <label for="event_where">¿Dónde?</label>
+                            <FormGroup>
+                                <Combobox
+                                    options={event_place}
+                                    dropdownProps={{style:{width:'100%'}}}
+                                    autocomplete
+                                    autosize
+                                    >
+                                    {(inputProps,otherProps,registerInput)=>
+                                        <FormControl
+                                            {...inputProps}
+                                            ref={c=>registerInput(ReactDOM.findDOMNode(c))}
+                                            type='text'
+                                            placeholder='Elige el lugar'>
+                                        </FormControl>
+                                    }
+                                </Combobox>
+                            </FormGroup>
+                         </Col>
+                         <Col style={padding_button} xs={12} sm={4} md={4} lg={4}>
+                            <button  onClick={this.searchSpace.bind(this)} type="button" class="btn btn-default">Buscar</button>
+                         </Col>
+                     </Row>
+                 </Well>
 
-                    <FormGroup>
-                        <Combobox
-                            options={event_type}
-                            dropdownProps={{style:{width:'100%'}}}
-                            autocomplete
-                            autosize
-                            >
-                            {(inputProps,otherProps,registerInput)=>
-                                <FormControl
-                                    {...inputProps}
-                                    ref={c=>registerInput(ReactDOM.findDOMNode(c))}
-                                    type='text'
-                                    placeholder='Elige el tipo de evento'>
-                                </FormControl>
-                            }
-                        </Combobox>
-                    </FormGroup>
+             </Grid>
 
-
-
-                  </div>
-                  <div class="form-group ui-widget col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                     <label for="event_where">¿Dónde?</label>
-                     <FormGroup>
-                         <Combobox
-                             options={event_place}
-                             dropdownProps={{style:{width:'100%'}}}
-                             autocomplete
-                             autosize
-                             >
-                             {(inputProps,otherProps,registerInput)=>
-                                 <FormControl
-                                     {...inputProps}
-                                     ref={c=>registerInput(ReactDOM.findDOMNode(c))}
-                                     type='text'
-                                     placeholder='Elige el lugar'>
-                                 </FormControl>
-                             }
-                         </Combobox>
-                     </FormGroup>
-                  </div>
-                  <div style={padding_button} class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                     <button onClick={this.searchSpace.bind(this)} type="button" class="btn btn-default">Buscar</button>
-                  </div>
-               </div>
-
-            </div>
             {searched_space? <Col xs={12} md={6} mdOffset={3}><Carousel>{list_results}</Carousel></Col>:""}
 
 

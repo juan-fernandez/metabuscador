@@ -1,9 +1,12 @@
 import React from "react"
 import { connect } from "react-redux"
 import Header from "./Header"
-import Navbar from "./Navbar"
+import MyNavbar from "./MyNavbar"
 import MainPanel from "./MainPanel"
 import Navbarhor from "./Navbarhor"
+
+import Calendar from "./Calendar"
+import Planner from "./Planner"
 
 import {changeView} from "../actions/spacesActions"
 
@@ -17,6 +20,9 @@ import {addEvent,
       toggleEvent} from "../actions/eventsActions"
 
 import Modal from "react-modal"
+
+import { Col, Navbar, Nav, NavItem, Tab, Row, Clearfix, Grid } from "react-bootstrap"
+import {Link} from 'react-router-dom'
 
 
 @connect((store) => {
@@ -82,47 +88,55 @@ export default class Layout extends React.Component {
 
         return(
 
-            <div style={padding_navbarhor} class="page-container">
-                <Modal // add event
-                    style={modal_style}
-                    isOpen={events.adding_event}
-                    onRequestClose={this.closeModal.bind(this)}
-                    contentLabel="Modal"
-                >
-                    <h1>Nuevo Evento</h1>
-                    <div class="form-group">
-                        <label for="usr">Espacio:</label>
-                        <input value={events.space_name} onChange={this.updateSpace.bind(this)} type="text" class="form-control" id="espacio"></input>
-                    </div>
-                    <button onClick={this.newEvent.bind(this)} type="button" class="btn btn-default">Añadir</button>
-                </Modal>
-
-                <Modal  // remove event
-                    style={modal_style}
-                    isOpen={events.removing_event}
-                    onRequestClose={this.closeModal.bind(this)}
-                    contentLabel="Modal"
-                >
-                    <h1>Borrar evento</h1>
-                    <button onClick={this.removeEvent.bind(this)} type="button" class="btn btn-default">Borrar evento</button>
-                </Modal>
-
-                <Navbarhor>
-                </Navbarhor>
-
-                <Header text="Área de Usuario">
-                </Header>
+            <div>
 
 
 
-                <div class="row">
-                <Navbar selected={selected[0].id} items={navbar_items} onClick={this.changeView.bind(this)}>
-                </Navbar>
 
 
-                <MainPanel clickPlanner={this.toggleEvent.bind(this)} moveEvent={this.moveEvent.bind(this)} clickEvent={this.clickEvent.bind(this)} addEvent={this.addEvent.bind(this)} selected={selected[0].id}>
-                </MainPanel>
-                </div>
+
+                <Grid>
+                    <Navbar inverse>
+                            <Navbar.Header>
+                                <Navbar.Brand>
+                                    <a>Micelocator</a>
+                                </Navbar.Brand>
+                            </Navbar.Header>
+                            <Navbar.Collapse>
+                                <Nav>
+                                    <NavItem eventKey={1}>
+                                            <Link to="/">
+                                                Area de Usuario
+                                            </Link>
+                                    </NavItem>
+                                    <NavItem eventKey={2}>
+                                            <Link to="/buscador">
+                                                Buscador
+                                            </Link>
+                                    </NavItem>
+                                </Nav>
+                            </Navbar.Collapse>
+                    </Navbar>
+
+                    <Header text="Área de Usuario">
+                    </Header>
+                    <Row>
+                        <Col xs={2} sm={2} md={2}>
+                            <MyNavbar selected={selected[0].id} items={navbar_items} onClick={this.changeView.bind(this)}>
+                            </MyNavbar>
+                        </Col>
+
+
+                        <Col xs={10} sm={10} md={10}>
+                            <MainPanel clickPlanner={this.toggleEvent.bind(this)} moveEvent={this.moveEvent.bind(this)} clickEvent={this.clickEvent.bind(this)} addEvent={this.addEvent.bind(this)} selected={selected[0].id}>
+                            </MainPanel>
+                        </Col>
+                    </Row>
+                </Grid>
+
+
+
+
 
 
             </div>

@@ -4,7 +4,8 @@ export default class Header extends React.Component {
     render(){
         const {text} = this.props;
         const style = {
-            paddingLeft: "20px"
+            paddingLeft: "20px",
+            textAlign: 'center'
         }
         return(
             <div style={style} class="page-header">
