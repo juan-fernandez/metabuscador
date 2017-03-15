@@ -46,14 +46,15 @@ export default class Planner extends React.Component{
             //console.log(element.parentElement.parentElement)
             container.addEventListener('click',(event)=>{
                 clickEvent(element.id);
-                /*if(element.parentElement.parentElement.parentElement.style.backgroundColor == 'rgb(233, 196, 196)'){
-                   element.parentElement.parentElement.parentElement.style.backgroundColor = 'rgb(197, 202, 233)';
-                }else{
-                   element.parentElement.parentElement.parentElement.style.backgroundColor = 'rgb(233, 196, 196)';
-                }*/
             })
         })
-
+        events.active_events.map((event_id)=>{
+           // rgb(159, 168, 218) oscuras
+           // rgb(197, 202, 233) claras
+           // rgb(233, 196, 196) seleccionadas
+           let container = document.getElementById(event_id).parentElement.parentElement.parentElement;
+           container.style.backgroundColor = 'rgb(233, 196, 196)';
+        })
     }
    componentWillReceiveProps(nextProps){
       const {events,clickEvent} = nextProps;
@@ -66,6 +67,7 @@ export default class Planner extends React.Component{
              container.style.backgroundColor = 'rgb(159, 168, 218)'
           }
       })
+      console.log("receve props:",events.active_events)
       events.active_events.map((event_id)=>{
          // rgb(159, 168, 218) oscuras
          // rgb(197, 202, 233) claras
