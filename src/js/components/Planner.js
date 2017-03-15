@@ -30,7 +30,7 @@ export default class Planner extends React.Component{
                 rowHeader: '<h2 class="table-h"><a>'+espacio.nombre+'</a></h2>',
                 rowVal:espacio.servicios.map((servicio,index_prop)=>{
                     return data.tableHeader.map((item,index_col)=>{
-                        return '<span id='+index_row+index_prop+index_col+'>x</span>'
+                        return '<span id='+index_row+'-'+index_prop+'-'+index_col+'>x</span>'
                     })
                 }),
                 rowDesc: event.properties
@@ -61,7 +61,8 @@ export default class Planner extends React.Component{
       document.querySelectorAll('span').forEach((element)=>{
           let container = element.parentElement.parentElement.parentElement;
           //console.log(element.parentElement.parentElement)
-          if(element.id%2==0){
+          let array = element.id.split('-');
+          if(array[2]%2==0){
              container.style.backgroundColor = 'rgb(197, 202, 233)'
           }else{
              container.style.backgroundColor = 'rgb(159, 168, 218)'
