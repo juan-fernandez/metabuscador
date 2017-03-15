@@ -27,7 +27,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner11sala-sinfonica.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner11sala-sinfonica.jpg",
+                              "http://www.lienzonorte.es/public/banners/banner11sala-sinfonica.jpg"]
             },
             {
                     nombre: "Sala Dorsal",
@@ -48,7 +49,9 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner13hall.jpg",
+                           "http://www.lienzonorte.es/public/banners/banner13hall.jpg"]
+
             },
             {
                     nombre: "Sala de cámara",
@@ -66,7 +69,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner13hall.jpg",
+                              "http://www.lienzonorte.es/public/banners/banner13hall.jpg"]
             },
             {
                     nombre: "Sala de Conferencias 1",
@@ -84,7 +88,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner13hall.jpg",
+                              "http://www.lienzonorte.es/public/banners/banner13hall.jpg"]
             },
             {
                     nombre: "Sala de Conferencias 2 (con pupitre)",
@@ -102,7 +107,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner13hall.jpg",
+                           "http://www.lienzonorte.es/public/banners/banner13hall.jpg"]
             },
             {
                     nombre: "Sala de Conferencias 3",
@@ -120,7 +126,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner13hall.jpg",
+                              "http://www.lienzonorte.es/public/banners/banner13hall.jpg"]
             },
             {
                     nombre: "Sala de Prensa",
@@ -138,9 +145,11 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/templates/lienzonorte/img/espacios/salas13.jpg"
-            },
-            {
+                    imagen: ["http://www.lienzonorte.es/templates/lienzonorte/img/espacios/salas13.jpg",
+                              "http://www.lienzonorte.es/templates/lienzonorte/img/espacios/salas13.jpg"]
+
+                  },
+                  {
                     nombre: "Sala Multifuncional 1",
                     superficie: "",
                     altura: {
@@ -156,7 +165,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/templates/lienzonorte/img/espacios/salas09.jpg"
+                    imagen: ["http://www.lienzonorte.es/templates/lienzonorte/img/espacios/salas09.jpg",
+                           "http://www.lienzonorte.es/templates/lienzonorte/img/espacios/salas09.jpg"]
             },
             {
                     nombre: "Sala de Multifuncional 2",
@@ -174,7 +184,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/templates/lienzonorte/img/espacios/salas09.jpg"
+                    imagen: ["http://www.lienzonorte.es/templates/lienzonorte/img/espacios/salas09.jpg",
+                              "http://www.lienzonorte.es/templates/lienzonorte/img/espacios/salas09.jpg"]
             },
             {
                     nombre: "Sala de Multifuncional 3",
@@ -192,7 +203,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner13hall.jpg",
+                              "http://www.lienzonorte.es/public/banners/banner13hall.jpg"]
             },
             {
                     nombre: "Camerino individual",
@@ -210,7 +222,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner13hall.jpg",
+                           "http://www.lienzonorte.es/public/banners/banner13hall.jpg"]
             },
             {
                     nombre: "Camerino Doble",
@@ -228,7 +241,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner13hall.jpg",
+                           "http://www.lienzonorte.es/public/banners/banner13hall.jpg"]
             },
             {
                     nombre: "Camerino Colectivo",
@@ -246,7 +260,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner13hall.jpg",
+                           "http://www.lienzonorte.es/public/banners/banner13hall.jpg"]
             },
             {
                     nombre: "Guardarropía",
@@ -264,7 +279,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner13hall.jpg",
+                           "http://www.lienzonorte.es/public/banners/banner13hall.jpg"]
             },
             {
                     nombre: "Sala de Exposiciones Lienzo Norte",
@@ -282,7 +298,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner12sala-de-exposiciones.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner12sala-de-exposiciones.jpg",
+                    "http://www.lienzonorte.es/public/banners/banner12sala-de-exposiciones.jpg"]
             },
             {
                     nombre: "Exposición en Zonas Comunes",
@@ -300,7 +317,8 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: ["http://www.lienzonorte.es/public/banners/banner13hall.jpg",
+                    "http://www.lienzonorte.es/public/banners/banner13hall.jpg"]
             },
     ],
     date_range: {

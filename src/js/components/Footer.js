@@ -3,7 +3,7 @@ import React from "react"
 export default class Footer extends React.Component {
     render(){
       const style={
-         backgroundColor: '#2f2f2f',
+         backgroundColor: '#35A7E8',
          color: '#fff',
          paddingTop: '40px',
          paddingBottom: '40px',
@@ -11,7 +11,7 @@ export default class Footer extends React.Component {
       }
         return(
             <footer style={style} class="text-center">
-              <p>Made by 7inEvent <a href="http://www.7inevent.com">7inevent.com</a></p>
+              <p>Made by 7inEvent <a style={{color:'white'}} href="http://www.7inevent.com">7inevent.com</a></p>
             </footer>
         )
     }

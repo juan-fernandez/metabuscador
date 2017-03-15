@@ -8,7 +8,7 @@ import Header from "./Header"
 
 import {Autosize, Autocomplete, Dropdown, Mask, DatePicker, Combobox } from "react-input-enhancements"
 
-import {FormGroup, Col, FormControl, Carousel, Navbar, Nav, NavItem, Grid, Row, Well} from "react-bootstrap"
+import {FormGroup, Col, FormControl, Carousel, Navbar, Nav, NavItem, Grid, Row, Well, Button} from "react-bootstrap"
 
 import {searchSpace} from "../actions/spacesActions"
 
@@ -17,6 +17,10 @@ import Space from "./Space"
 import Footer from "./Footer"
 
 import {Link} from 'react-router-dom'
+
+import {moment} from 'moment'
+
+
 
 @connect((store) => {
     return {
@@ -34,16 +38,8 @@ export default class Searcher extends React.Component {
         const {searched_space} = this.props.spaces;
         const {espacios} = this.props.events;
 
-        /*const list_results = espacios.map((espacio,index)=>
+        const list_spaces = espacios.map((espacio,index)=>
             <Space key={index} info={espacio}/>
-        )*/
-        const list_results = espacios.map((espacio,index)=>
-            <Carousel.Item key={index}>
-                        <img width={1140} height={450} alt="1140x450" src={espacio.imagen}/>
-                        <Carousel.Caption>
-                            <h3>{espacio.nombre.charAt(0).toUpperCase()+espacio.nombre.slice(1)}</h3>
-                        </Carousel.Caption>
-            </Carousel.Item>
         )
 
 
@@ -51,34 +47,6 @@ export default class Searcher extends React.Component {
             paddingTop: '25px'
         }
         const event_type= [
-            {
-                value:"Boda",
-                text:"Boda"
-            },
-            {
-                value:"Bautizo",
-                text:"Bautizo"
-            },
-            {
-                value:"Comuniones",
-                text:"Comuniones"
-            },
-            {
-                value:"Cumpleaños",
-                text:"Cumpleaños"
-            },
-            {
-                value:"Graduación",
-                text:"Graduación"
-            },
-            {
-                value:"Concierto",
-                text:"Concierto"
-            },
-            {
-                value:"Cena de Gala",
-                text:"Cena de Gala"
-            },
             {
                 value:"Coaching, seminarios, formación",
                 text:"Coaching, seminarios, formación"
@@ -92,8 +60,20 @@ export default class Searcher extends React.Component {
                 text:"Congresos"
             },
             {
-                value:"Eventos deportivos",
-                text:"Eventos deportivos"
+                value:"Convenciones",
+                text:"Convenciones"
+            },
+            {
+                value:"Exposiciones",
+                text:"Exposiciones"
+            },
+            {
+                value:"Ferias",
+                text:"Ferias"
+            },
+            {
+                value:"Grandes Eventos",
+                text:"Grandes Eventos"
             },
         ]
 
@@ -127,10 +107,6 @@ export default class Searcher extends React.Component {
                 text:"Barcelona"
             },
             {
-                value:"Bautizo",
-                text:"Bautizo"
-            },
-            {
                 value:"Sevilla",
                 text:"Sevilla"
             },
@@ -152,7 +128,7 @@ export default class Searcher extends React.Component {
                  </Row>
                  <Well>
                      <Row>
-                         <Col xs={12} sm={4} md={4} lg={4}>
+                         <Col xs={12} sm={3} md={3} lg={3}>
                             <label for="event_type">¿Qué evento quieres organizar?</label>
                             <FormGroup>
                                 <Combobox
@@ -172,7 +148,7 @@ export default class Searcher extends React.Component {
                                 </Combobox>
                             </FormGroup>
                          </Col>
-                         <Col xs={12} sm={4} md={4} lg={4}>
+                         <Col xs={12} sm={3} md={3} lg={3}>
                             <label for="event_where">¿Dónde?</label>
                             <FormGroup>
                                 <Combobox
@@ -192,21 +168,51 @@ export default class Searcher extends React.Component {
                                 </Combobox>
                             </FormGroup>
                          </Col>
-                         <Col style={padding_button} xs={12} sm={4} md={4} lg={4}>
-                            <button  onClick={this.searchSpace.bind(this)} type="button" class="btn btn-default">Buscar</button>
+                         <Col xs={12} sm={3} md={3} lg={3}>
+                            <label for="event_numero">¿Cuántos sois?</label>
+                            <FormGroup>
+                               <FormControl
+                                   type='text'
+                                   placeholder='Cuántos sois'>
+                               </FormControl>
+
+                            </FormGroup>
                          </Col>
+                         <Col xs={12} sm={3} md={3} lg={3}>
+                            <label for="event_fecha">Fecha</label>
+                            <FormGroup>
+                               <DatePicker
+                                   value={'mié. 15/03/2017'}
+                                   onValuePreUpdate={v => parseInt(v, 10) > 1e8 ?
+                                     moment(parseInt(v, 10)).format('ddd DD/MM/YYYY') : v
+                                   }
+                                   locale='es'
+                                 >
+
+                                   {(inputProps, otherProps,registerInput ) =>
+                                     <FormControl
+                                       {...inputProps}
+                                       style={{ ...inputProps.style, fontFamily: 'monospace' }}
+                                       ref={c => registerInput(ReactDOM.findDOMNode(c))}
+                                       type='text'
+                                     />
+                                   }
+                                 </DatePicker>
+                              </FormGroup>
+                         </Col>
+
                      </Row>
+                     <Row>
+                        <Col style={padding_button} xs={12} sm={3} md={3} lg={3} xsOffset={0} smOffset={9} mdOffset={9} lgOffset={9}>
+                           <Button onClick={this.searchSpace.bind(this)} bsStyle="primary" bsSize="large" block>Buscar</Button>
+
+                        </Col>
+                     </Row>
+
                  </Well>
                {
-                  searched_space?
-                     <Row>
-                        <Col xs={12} sm={12} md={12} xsOffset={0} smOffset={0} mdOffset={0}>
-                           <Carousel>
-                              {list_results}
-                           </Carousel>
-                        </Col>
-                        </Row>
-                        :""}
+                  searched_space? list_spaces:""
+               }
                   <Footer>
                   </Footer>
              </Grid>
