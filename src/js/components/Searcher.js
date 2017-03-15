@@ -1,6 +1,8 @@
 import React from "react"
 import ReactDOM from 'react-dom';
 
+import { connect } from "react-redux"
+
 import Navbarhor from "./Navbarhor"
 import Header from "./Header"
 
@@ -8,10 +10,32 @@ import {Autosize, Autocomplete, Dropdown, Mask, DatePicker, Combobox } from "rea
 
 import {FormGroup, Col, FormControl} from "react-bootstrap"
 
+import {searchSpace} from "../actions/spacesActions"
 
+import Space from "./Space"
+
+
+@connect((store) => {
+    return {
+        spaces: store.spaces,
+        events: store.events
+    };
+})
 
 export default class Searcher extends React.Component {
+    searchSpace(){
+        this.props.dispatch(searchSpace())
+    }
+
     render(){
+        const {searched_space} = this.props.spaces;
+        const {espacios} = this.props.events;
+
+        const list_results = espacios.map((espacio,index)=>
+            <Space key={index} info={espacio}/>
+        )
+
+
         const padding_navbarhor = {
             paddingTop: '0px'
         }
@@ -105,7 +129,7 @@ export default class Searcher extends React.Component {
             {
                 value:"Toledo",
                 text:"Toledo"
-            },    
+            },
         ]
 
       return(
@@ -163,11 +187,14 @@ export default class Searcher extends React.Component {
                      </FormGroup>
                   </div>
                   <div style={padding_button} class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                     <button type="button" class="btn btn-default">Buscar</button>
+                     <button onClick={this.searchSpace.bind(this)} type="button" class="btn btn-default">Buscar</button>
                   </div>
                </div>
 
             </div>
+            {searched_space? list_results:""}
+
+
 
          </div>
       )

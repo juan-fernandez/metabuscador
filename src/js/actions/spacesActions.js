@@ -14,3 +14,8 @@ export function addEvent(date){
         }
     }
 }
+export function searchSpace(){
+    return {
+        type: "SEARCH_SPACE",
+    }
+}

@@ -1,25 +1,6 @@
 export default function reducer(
 state = {
-    events:[
-        {
-            title: "Sala de eventos 1" ,
-            date: new Date(2017,2,13),
-            allDay: true,
-            properties: ['Sala completa']
-        },
-        {
-            title: "Aula Magna" ,
-            date: new Date(2017,2,14),
-            allDay: true,
-            properties: ['Con material audiovisual', 'Sin material audiovisual']
-        },
-        {
-            title: "Anfiteatro" ,
-            date: new Date(2017,2,14),
-            allDay: true,
-            properties: ['Sala completa']
-        },
-    ],
+
     adding_event: false, // flag to show modal
     space_name: "",
     date_new_event: null,

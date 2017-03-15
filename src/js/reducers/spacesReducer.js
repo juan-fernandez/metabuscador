@@ -11,7 +11,8 @@ state = {
             text: "Tus espacios",
             selected: false
         }
-    ]
+    ],
+    searched_space: false,
 },
 action)
 {
@@ -28,6 +29,12 @@ action)
                     }
                     return item;
                 })
+            }
+        }
+        case "SEARCH_SPACE":{
+            return {
+                ...state,
+                searched_space: true
             }
         }
     }
