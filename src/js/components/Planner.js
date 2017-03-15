@@ -67,7 +67,6 @@ export default class Planner extends React.Component{
              container.style.backgroundColor = 'rgb(159, 168, 218)'
           }
       })
-      console.log("receve props:",events.active_events)
       events.active_events.map((event_id)=>{
          // rgb(159, 168, 218) oscuras
          // rgb(197, 202, 233) claras

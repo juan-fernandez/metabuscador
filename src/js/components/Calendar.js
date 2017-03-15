@@ -10,6 +10,9 @@ export default class Calendar extends React.Component{
 
     componentDidMount() {
         const {calendar} = this.refs;
+        const {active_events,espacios} = this.props.events;
+
+
         $(calendar).fullCalendar({
         		header: {
         			left: 'prev,next today',
@@ -17,7 +20,15 @@ export default class Calendar extends React.Component{
         			right: 'month,agendaWeek,agendaDay'
         		},
         		editable: true,
-                events: this.props.events,
+                events: active_events.map((event_id)=>{
+                    console.log("day",event_id[event_id.length-1])
+
+                    return{
+                        title: espacios[event_id.substring(0,event_id.length-2)].nombre ,
+                        date: new Date(2017,2,+event_id[event_id.length-1]+1),
+                        allDay: true,
+                    }
+                }),
                 height: 450,
                 dayClick: (date, jsEvent, view)=>{
                     this.props.addEvent(date);
@@ -42,6 +53,7 @@ export default class Calendar extends React.Component{
 
         }
         const {calendar} = this.refs;
+        const {active_events,espacios} = this.props.events;
         $(calendar).fullCalendar('destroy');
         $(calendar).fullCalendar({
         		header: {
@@ -50,7 +62,15 @@ export default class Calendar extends React.Component{
         			right: 'month,agendaWeek,agendaDay'
         		},
         		editable: true,
-                events: this.props.events,
+                events: active_events.map((event_id)=>{
+                    console.log("day",event_id[event_id.length-1])
+
+                    return{
+                        title: espacios[event_id.substring(0,event_id.length-2)].nombre ,
+                        date: new Date(2017,2,+event_id[event_id.length-1]+1),
+                        allDay: true,
+                    }
+                }),
                 height: 450,
                 dayClick: (date, jsEvent, view)=>{
                     this.props.addEvent(date);
