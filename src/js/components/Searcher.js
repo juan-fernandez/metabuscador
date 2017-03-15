@@ -46,10 +46,6 @@ export default class Searcher extends React.Component {
         )
 
 
-
-        const padding_navbarhor = {
-            paddingTop: '0px'
-        }
         const padding_button = {
             paddingTop: '25px'
         }
@@ -146,31 +142,13 @@ export default class Searcher extends React.Component {
       return(
          <div>
              <Grid>
-                 <Navbar inverse>
-                         <Navbar.Header>
-                             <Navbar.Brand>
-                                 <a>Micelocator</a>
-                             </Navbar.Brand>
-                         </Navbar.Header>
-                         <Navbar.Collapse>
-                             <Nav>
-                                 <NavItem eventKey={1}>
-                                         <Link to="/">
-                                             Area de Usuario
-                                         </Link>
-                                 </NavItem>
-                                 <NavItem eventKey={2}>
-                                         <Link to="/buscador">
-                                             Buscador
-                                         </Link>
-                                 </NavItem>
-                             </Nav>
-                         </Navbar.Collapse>
-                 </Navbar>
-                 <Header text="Buscador">
+                 <Navbarhor>
+                 </Navbarhor>
 
-                 </Header>
-
+                 <Row>
+                     <Header text="Buscador">
+                     </Header>
+                 </Row>
                  <Well>
                      <Row>
                          <Col xs={12} sm={4} md={4} lg={4}>

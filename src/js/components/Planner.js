@@ -12,7 +12,7 @@ export default class Planner extends React.Component{
     componentDidMount() {
         const {tabella} = this.refs;
         const {events,clickEvent} = this.props;
-        console.log("did mount")
+        //console.log("did mount")
         var data = {};
         data.tableHeader = [];
         var from = events.date_range.from;
@@ -61,7 +61,7 @@ export default class Planner extends React.Component{
     }
    componentWillReceiveProps(nextProps){
       const {events,clickEvent} = nextProps;
-      console.log("props")
+      //console.log("props")
       document.querySelectorAll('span').forEach((element)=>{
           let container = element.parentElement.parentElement.parentElement;
           //console.log(element.parentElement.parentElement)
@@ -82,7 +82,7 @@ export default class Planner extends React.Component{
    }
    componentWillUnmount(){
       const {tabella} = this.refs;
-      console.log("un mount")
+      //console.log("un mount")
    }
    render(){
 

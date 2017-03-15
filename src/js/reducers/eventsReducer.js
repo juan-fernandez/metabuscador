@@ -313,7 +313,7 @@ action)
 {
     switch (action.type) {
         case "ADD_EVENT":{ // opening modal, not yet added
-            console.log(action.payload)
+            //console.log(action.payload)
             return{
                 ...state,
                 adding_event: true,
@@ -388,7 +388,7 @@ action)
 
         }
       case "TOGGLE_EVENT":{
-         console.log("reducer:",action.payload)
+         //console.log("reducer:",action.payload)
          let found = false;
          let filtered = state.active_events.filter((event_id)=>{
             if(event_id == action.payload.id){
@@ -403,7 +403,7 @@ action)
                action.payload.id
             ]
          }
-         console.log(filtered)
+         //console.log(filtered)
          return {
             ...state,
             active_events: filtered

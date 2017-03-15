@@ -70,56 +70,23 @@ export default class Layout extends React.Component {
       const selected = navbar_items.filter((item)=>{
       return item.selected === true;
       })
-      const modal_style = {
-         content : {
-            top                   : '50%',
-            left                  : '50%',
-            right                 : 'auto',
-            bottom                : 'auto',
-            marginRight           : '-50%',
-            transform             : 'translate(-50%, -50%)',
-            width                 : '30%'
-         }
-      };
-      const padding_navbarhor = {
-         paddingTop: '0px'
-      }
+
 
 
         return(
 
             <div>
 
-
-
-
-
-
                 <Grid>
-                    <Navbar inverse>
-                            <Navbar.Header>
-                                <Navbar.Brand>
-                                    <a>Micelocator</a>
-                                </Navbar.Brand>
-                            </Navbar.Header>
-                            <Navbar.Collapse>
-                                <Nav>
-                                    <NavItem eventKey={1}>
-                                            <Link to="/">
-                                                Area de Usuario
-                                            </Link>
-                                    </NavItem>
-                                    <NavItem eventKey={2}>
-                                            <Link to="/buscador">
-                                                Buscador
-                                            </Link>
-                                    </NavItem>
-                                </Nav>
-                            </Navbar.Collapse>
-                    </Navbar>
 
-                    <Header text="Área de Usuario">
-                    </Header>
+                    <Navbarhor>
+                    </Navbarhor>
+
+                    <Row>
+                        <Header text="Área de Usuario">
+                        </Header>
+                    </Row>
+
                     <Row>
                         <Col xs={2} sm={2} md={2}>
                             <MyNavbar selected={selected[0].id} items={navbar_items} onClick={this.changeView.bind(this)}>
