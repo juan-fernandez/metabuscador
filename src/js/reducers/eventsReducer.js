@@ -138,7 +138,7 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: "http://www.lienzonorte.es/templates/lienzonorte/img/espacios/salas13.jpg"
             },
             {
                     nombre: "Sala Multifuncional 1",
@@ -156,7 +156,7 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: "http://www.lienzonorte.es/templates/lienzonorte/img/espacios/salas09.jpg"
             },
             {
                     nombre: "Sala de Multifuncional 2",
@@ -174,7 +174,7 @@ state = {
                     servicios: [
                         ''
                     ],
-                    imagen: "http://www.lienzonorte.es/public/banners/banner13hall.jpg"
+                    imagen: "http://www.lienzonorte.es/templates/lienzonorte/img/espacios/salas09.jpg"
             },
             {
                     nombre: "Sala de Multifuncional 3",
