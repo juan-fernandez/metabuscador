@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { connect } from "react-redux"
 
 import Navbarhor from "./Navbarhor"
-import Header from "./Header"
+import MyHeader from "./MyHeader"
 
 import {Autosize, Autocomplete, Dropdown, Mask, DatePicker, Combobox } from "react-input-enhancements"
 
@@ -139,10 +139,10 @@ export default class Searcher extends React.Component {
                 </Navbar>
 
 
-                 <Row>
-                     <Header text="Buscador">
-                     </Header>
-                 </Row>
+
+                 <MyHeader text="Buscador" logo={false}>
+                 </MyHeader>
+
                  <Well>
                      <Row>
                          <Col xs={12} sm={3} md={3} lg={3}>

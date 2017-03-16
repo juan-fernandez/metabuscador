@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import Header from "./Header"
+import MyHeader from "./MyHeader"
 import MyNavbar from "./MyNavbar"
 import MainPanel from "./MainPanel"
 import Navbarhor from "./Navbarhor"
@@ -99,10 +99,10 @@ export default class Layout extends React.Component {
                         </Navbar.Collapse>
                     </Navbar>
 
-                    <Row>
-                        <Header text="Área de Usuario">
-                        </Header>
-                    </Row>
+
+                    <MyHeader text="Área de Usuario" logo={true}>
+                    </MyHeader>
+
 
                     <Row>
                         <Col xs={12} sm={4} md={2}>

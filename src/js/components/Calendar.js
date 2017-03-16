@@ -57,7 +57,7 @@ export default class Calendar extends React.Component{
         const {calendar} = this.refs;
         const {active_events,espacios} = this.props.events;
 
-        console.log("active_events",active_events)
+        
 
         $(calendar).fullCalendar('destroy');
         $(calendar).fullCalendar({

@@ -22,6 +22,7 @@ export default class Space extends React.Component {
                   </Col>
                   <Col xs={12} sm={12} md={4} lg={4}>
                      <Well>
+                        <img width={'90%'} src={"resources/logo.png"}/>
                         <h3>{info.nombre}</h3>
                         <h3>Superficie: {info.superficie} m2</h3>
                         <h3>Precio: {info.precio} €/día</h3>
