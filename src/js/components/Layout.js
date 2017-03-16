@@ -8,6 +8,10 @@ import Navbarhor from "./Navbarhor"
 import Calendar from "./Calendar"
 import Planner from "./Planner"
 
+import Footer from "./Footer"
+
+
+
 import {changeView} from "../actions/spacesActions"
 
 import {addEvent,
@@ -72,7 +76,6 @@ export default class Layout extends React.Component {
       })
 
 
-
         return(
 
             <div>
@@ -88,17 +91,21 @@ export default class Layout extends React.Component {
                     </Row>
 
                     <Row>
-                        <Col xs={2} sm={2} md={2}>
+                        <Col xs={12} sm={4} md={2}>
                             <MyNavbar selected={selected[0].id} items={navbar_items} onClick={this.changeView.bind(this)}>
                             </MyNavbar>
                         </Col>
 
 
-                        <Col xs={10} sm={10} md={10}>
+                        <Col xs={12} sm={8} md={10}>
                             <MainPanel clickPlanner={this.toggleEvent.bind(this)} moveEvent={this.moveEvent.bind(this)} clickEvent={this.clickEvent.bind(this)} addEvent={this.addEvent.bind(this)} selected={selected[0].id}>
                             </MainPanel>
                         </Col>
                     </Row>
+
+                  <Footer>
+                  </Footer>
+
                 </Grid>
 
 
