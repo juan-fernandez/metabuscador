@@ -45,11 +45,15 @@ export default class Planner extends React.Component{
         hotelrowVal.refreshSize();
 
         document.querySelectorAll('span').forEach((element)=>{
-            let container = element.parentElement.parentElement.parentElement;
-            //console.log(element.parentElement.parentElement)
-            container.addEventListener('click',(event)=>{
-                clickEvent(element.id);
-            })
+            let array = element.id.split('-');
+            if(array.length == 3){
+                let container = element.parentElement.parentElement.parentElement;
+                //console.log(element.parentElement.parentElement)
+                container.addEventListener('click',(event)=>{
+                    clickEvent(element.id);
+                })
+            }
+
         })
         events.active_events.map((event_id)=>{
            // rgb(159, 168, 218) oscuras
@@ -66,10 +70,12 @@ export default class Planner extends React.Component{
           let container = element.parentElement.parentElement.parentElement;
           //console.log(element.parentElement.parentElement)
           let array = element.id.split('-');
-          if(array[2]%2==0){
-             container.style.backgroundColor = 'rgb(197, 202, 233)'
-          }else{
-             container.style.backgroundColor = 'rgb(159, 168, 218)'
+          if(array.length == 3){
+              if(array[2]%2==0){
+                 container.style.backgroundColor = 'rgb(197, 202, 233)'
+              }else{
+                 container.style.backgroundColor = 'rgb(159, 168, 218)'
+              }
           }
       })
       events.active_events.map((event_id)=>{
