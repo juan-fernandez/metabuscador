@@ -4,7 +4,7 @@ export default class MyNavbar extends React.Component{
 
     render(){
         const style={
-
+            cursor: 'pointer'
         }
         const {items,onClick,selected} = this.props;
 
@@ -14,11 +14,9 @@ export default class MyNavbar extends React.Component{
 
 
         return(
-            <div>
-                <div class="list-group">
+                <div style={style} class="list-group">
                     {list}
                 </div>
-            </div>
         )
     }
 }

@@ -204,7 +204,7 @@ export default class Searcher extends React.Component {
                                      moment(parseInt(v, 10)).format('ddd DD/MM/YYYY') : v
                                    }
                                    locale='es'
-
+                                   dropdownProps={{style:{width:'100%'}}}
                                  >
 
                                    {(inputProps, otherProps,registerInput ) =>
