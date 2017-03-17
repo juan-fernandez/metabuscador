@@ -7,7 +7,8 @@ export default class Space extends React.Component {
         super();
         this.state={
             showBooking: false,
-            showTechnical: false
+            showTechnical: false,
+            showConfirmation: false
         }
     }
     openBooking(){
@@ -18,10 +19,14 @@ export default class Space extends React.Component {
     }
     close() {
         this.setState({ showBooking: false ,
-                       showTechnical: false
+                       showTechnical: false,
+                       showConfirmation: false
                       })
-    }
-
+   }
+   openConfirmation(){
+      this.setState({showConfirmation: true,
+                     showBooking: false})
+   }
 
     render(){
         const {info} = this.props;
@@ -52,7 +57,7 @@ export default class Space extends React.Component {
                         </Row>
                         <Row>
                             <Col xs={12} sm={12} md={8} lg={6} xsOffset={0} smOffset={0} mdOffset={2} lgOffset={3}>
-                                <Button><Glyphicon glyph="envelope" /> Reserva</Button>
+                                <Button onClick={this.openConfirmation.bind(this)}><Glyphicon glyph="envelope" /> Reserva</Button>
                             </Col>
                         </Row>
                     </Modal.Body>
@@ -81,6 +86,11 @@ export default class Space extends React.Component {
                     <Modal.Footer>
                         <Button onClick={this.close.bind(this)}>Cerrar</Button>
                     </Modal.Footer>
+                </Modal>
+                <Modal show={this.state.showConfirmation} onHide={this.close.bind(this)}>
+                    <Modal.Body style={{paddingTop:'20px'}}>
+                        <Glyphicon glyph="ok" /> ¡Mensaje enviado! 
+                    </Modal.Body>
                 </Modal>
                 <Row>
                    <Panel header={info.nombre}>
