@@ -10,7 +10,7 @@ export default class Landing extends React.Component{
         return(
             <Grid>
                 <Row>
-                    <Col md={4} lg={4} mdOffset={4} lgOffset={4}>
+                    <Col xs={12} sm={12} md={4} lg={4} mdOffset={4} lgOffset={4}>
                         <div className="static-modal">
 
 

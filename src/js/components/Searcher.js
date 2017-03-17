@@ -146,7 +146,7 @@ export default class Searcher extends React.Component {
                  <Well>
                      <Row>
                          <Col xs={12} sm={3} md={3} lg={3}>
-                            <label for="event_type">¿Qué evento quieres organizar?</label>
+                            <label for="event_type">¿Tipo de evento?</label>
                             <FormGroup>
                                 <Combobox
                                     options={event_type}
