@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { connect } from "react-redux"
 
 import Navbarhor from "./Navbarhor"
-import Header from "./Header"
+import MyHeader from "./MyHeader"
 
 import {Autosize, Autocomplete, Dropdown, Mask, DatePicker, Combobox } from "react-input-enhancements"
 
@@ -120,17 +120,33 @@ export default class Searcher extends React.Component {
       return(
          <div>
              <Grid>
-                 <Navbarhor>
-                 </Navbarhor>
+                 {/*<Navbarhor>
+                 </Navbarhor>*/}
 
-                 <Row>
-                     <Header text="Buscador">
-                     </Header>
-                 </Row>
+                <Navbar inverse collapseOnSelect>
+                    <Navbar.Header>
+                        <Navbar.Brand>
+                            <a href="#">Micelocator</a>
+                        </Navbar.Brand>
+                        <Navbar.Toggle />
+                    </Navbar.Header>
+                    <Navbar.Collapse>
+                        <Nav>
+                            <NavItem eventKey={1}><Link style={{color:'white'}} to="/user">Area de Usuario</Link></NavItem>
+                            <NavItem eventKey={2}><Link style={{color:'white'}} to="/buscador">Buscador</Link></NavItem>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+
+
+
+                 <MyHeader text="Buscador" logo={false}>
+                 </MyHeader>
+
                  <Well>
                      <Row>
                          <Col xs={12} sm={3} md={3} lg={3}>
-                            <label for="event_type">¿Qué evento quieres organizar?</label>
+                            <label for="event_type">¿Tipo de evento?</label>
                             <FormGroup>
                                 <Combobox
                                     options={event_type}
@@ -188,7 +204,7 @@ export default class Searcher extends React.Component {
                                      moment(parseInt(v, 10)).format('ddd DD/MM/YYYY') : v
                                    }
                                    locale='es'
-                                   
+                                   dropdownProps={{style:{width:'100%'}}}
                                  >
 
                                    {(inputProps, otherProps,registerInput ) =>

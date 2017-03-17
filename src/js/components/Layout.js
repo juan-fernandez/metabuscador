@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import Header from "./Header"
+import MyHeader from "./MyHeader"
 import MyNavbar from "./MyNavbar"
 import MainPanel from "./MainPanel"
 import Navbarhor from "./Navbarhor"
@@ -82,13 +82,27 @@ export default class Layout extends React.Component {
 
                 <Grid>
 
-                    <Navbarhor>
-                    </Navbarhor>
+                    {/*<Navbarhor>
+                    </Navbarhor>*/}
+                    <Navbar inverse collapseOnSelect>
+                        <Navbar.Header>
+                            <Navbar.Brand>
+                                <a href="#">Micelocator</a>
+                            </Navbar.Brand>
+                            <Navbar.Toggle />
+                        </Navbar.Header>
+                        <Navbar.Collapse>
+                            <Nav>
+                                <NavItem eventKey={1}><Link style={{color:'white'}} to="/user">Area de Usuario</Link></NavItem>
+                                <NavItem eventKey={2}><Link style={{color:'white'}} to="/buscador">Buscador</Link></NavItem>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
 
-                    <Row>
-                        <Header text="Área de Usuario">
-                        </Header>
-                    </Row>
+
+                    <MyHeader text="Área de Usuario" logo={true}>
+                    </MyHeader>
+
 
                     <Row>
                         <Col xs={12} sm={4} md={2}>

@@ -11,6 +11,8 @@ import {
 import Layout from "./components/Layout"
 import Searcher from "./components/Searcher"
 
+import Landing from "./components/Landing"
+
 import store from "./store"
 
 const app = document.getElementById('app')
@@ -19,7 +21,8 @@ ReactDOM.render(
    <Provider store={store}>
       <Router>
          <div>
-            <Route exact path="/" component={Layout}/>
+            <Route exact path="/" component={Landing}/>
+            <Route path="/user" component={Layout}/>
             <Route path="/buscador" component={Searcher}/>
          </div>
       </Router>

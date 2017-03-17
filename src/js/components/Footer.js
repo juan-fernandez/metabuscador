@@ -3,7 +3,7 @@ import React from "react"
 export default class Footer extends React.Component {
     render(){
       const style={
-         backgroundColor: '#35A7E8',
+         backgroundColor: '#044789',
          color: '#fff',
          paddingTop: '40px',
          paddingBottom: '40px',
