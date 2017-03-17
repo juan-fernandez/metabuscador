@@ -93,7 +93,7 @@ export default class Layout extends React.Component {
                         </Navbar.Header>
                         <Navbar.Collapse>
                             <Nav>
-                                <NavItem eventKey={1}><Link style={{color:'white'}} to="/">Area de Usuario</Link></NavItem>
+                                <NavItem eventKey={1}><Link style={{color:'white'}} to="/user">Area de Usuario</Link></NavItem>
                                 <NavItem eventKey={2}><Link style={{color:'white'}} to="/buscador">Buscador</Link></NavItem>
                             </Nav>
                         </Navbar.Collapse>
