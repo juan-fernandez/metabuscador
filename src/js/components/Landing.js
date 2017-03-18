@@ -4,8 +4,11 @@ import {Col, Row, Grid, Modal, Button, FormControl, ControlLabel, FieldGroup, Fo
 
 import {Link} from 'react-router-dom'
 
-import {loginUser} from '../actions/authActions'
+import {loginUser, logoutUser} from '../actions/authActions'
 
+import {
+   Redirect
+} from 'react-router-dom'
 
 @connect((store) => {
     return {
@@ -42,6 +45,7 @@ export default class Landing extends React.Component{
       console.log(auth)
       return(
             <Grid>
+               {auth.isAuthenticated ? <Redirect to="/user"/>:""}
                 <Row>
                     <Col xs={12} sm={12} md={4} lg={4} mdOffset={4} lgOffset={4}>
                         <div className="static-modal">

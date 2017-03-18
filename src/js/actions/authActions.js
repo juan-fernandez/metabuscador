@@ -56,3 +56,25 @@ export function loginUser(creds) {
       }).catch(err => {console.log("Error: ", err)})
    }
 }
+export function logoutUser() {
+   return dispatch => {
+      dispatch(requestLogout())
+      localStorage.removeItem('id_token')
+      dispatch(receiveLogout())
+   }
+}
+function requestLogout() {
+   return {
+      type: 'LOGOUT_REQUEST',
+      isFetching: true,
+      isAuthenticated: true
+   }
+}
+
+function receiveLogout() {
+   return {
+      type: 'LOGOUT_SUCCESS',
+      isFetching: false,
+      isAuthenticated: false
+   }
+}

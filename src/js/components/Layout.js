@@ -10,6 +10,9 @@ import Planner from "./Planner"
 
 import Footer from "./Footer"
 
+import {
+   Redirect
+} from 'react-router-dom'
 
 
 import {changeView} from "../actions/spacesActions"
@@ -81,23 +84,9 @@ export default class Layout extends React.Component {
             <div>
 
                 <Grid>
+                    <Navbarhor>
+                    </Navbarhor>
 
-                    {/*<Navbarhor>
-                    </Navbarhor>*/}
-                    <Navbar inverse collapseOnSelect>
-                        <Navbar.Header>
-                            <Navbar.Brand>
-                                <a href="#">Micelocator</a>
-                            </Navbar.Brand>
-                            <Navbar.Toggle />
-                        </Navbar.Header>
-                        <Navbar.Collapse>
-                            <Nav>
-                                <NavItem eventKey={1}><Link style={{color:'white'}} to="/user">Area de Usuario</Link></NavItem>
-                                <NavItem eventKey={2}><Link style={{color:'white'}} to="/buscador">Buscador</Link></NavItem>
-                            </Nav>
-                        </Navbar.Collapse>
-                    </Navbar>
 
 
                     <MyHeader text="Área de Usuario" logo={true}>

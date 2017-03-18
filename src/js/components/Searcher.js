@@ -26,7 +26,7 @@ import { DayPicker } from 'react-date-picker'
 @connect((store) => {
     return {
         spaces: store.spaces,
-        events: store.events
+        events: store.events,
     };
 })
 
@@ -120,23 +120,9 @@ export default class Searcher extends React.Component {
       return(
          <div>
              <Grid>
-                 {/*<Navbarhor>
-                 </Navbarhor>*/}
 
-                <Navbar inverse collapseOnSelect>
-                    <Navbar.Header>
-                        <Navbar.Brand>
-                            <a href="#">Micelocator</a>
-                        </Navbar.Brand>
-                        <Navbar.Toggle />
-                    </Navbar.Header>
-                    <Navbar.Collapse>
-                        <Nav>
-                            <NavItem eventKey={1}><Link style={{color:'white'}} to="/user">Area de Usuario</Link></NavItem>
-                            <NavItem eventKey={2}><Link style={{color:'white'}} to="/buscador">Buscador</Link></NavItem>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
+                 <Navbarhor>
+                 </Navbarhor>
 
 
 
