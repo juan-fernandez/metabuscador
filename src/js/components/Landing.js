@@ -1,13 +1,46 @@
 import React from "react"
-
+import { connect } from "react-redux"
 import {Col, Row, Grid, Modal, Button, FormControl, ControlLabel, FieldGroup, Form,FormGroup, Checkbox} from "react-bootstrap"
 
 import {Link} from 'react-router-dom'
 
-export default class Landing extends React.Component{
+import {loginUser} from '../actions/authActions'
 
-    render(){
-        return(
+
+@connect((store) => {
+    return {
+        auth: store.auth,
+    };
+})
+export default class Landing extends React.Component{
+   constructor(){
+      super();
+      this.state={
+         email:"",
+         password:""
+      }
+   }
+   updateEmail(ev){
+      this.setState({
+         email: ev.target.value
+      })
+   }
+   updatePassword(ev){
+      this.setState({
+         password: ev.target.value
+      })
+   }
+   requestLogin(){
+      let creds={
+         username: this.state.email,
+         password: this.state.password
+      }
+      this.props.dispatch(loginUser(creds))
+   }
+   render(){
+      const {auth} = this.props;
+      console.log(auth)
+      return(
             <Grid>
                 <Row>
                     <Col xs={12} sm={12} md={4} lg={4} mdOffset={4} lgOffset={4}>
@@ -27,7 +60,7 @@ export default class Landing extends React.Component{
                                         Email
                                       </Col>
                                       <Col sm={10}>
-                                        <FormControl type="email" placeholder="Email" />
+                                        <FormControl onInput={this.updateEmail.bind(this)} type="email" placeholder="Email" value={this.state.email}/>
                                       </Col>
                                     </FormGroup>
 
@@ -36,10 +69,14 @@ export default class Landing extends React.Component{
                                         Password
                                       </Col>
                                       <Col sm={10}>
-                                        <FormControl type="password" placeholder="Password" />
+                                        <FormControl onInput={this.updatePassword.bind(this)} type="password" placeholder="Password" value={this.state.password}/>
                                       </Col>
                                     </FormGroup>
-
+                                    <Col smOffset={2} sm={10}>
+                                       <p style={{color:'red'}}>
+                                       {auth.errorMessage}
+                                       </p>
+                                    </Col>
                                     <FormGroup>
                                       <Col smOffset={2} sm={10}>
                                         <Checkbox>Recuérdame</Checkbox>
@@ -48,8 +85,9 @@ export default class Landing extends React.Component{
 
                                     <FormGroup>
                                       <Col smOffset={2} sm={10}>
-                                        <Button bsStyle="primary">
-                                            <Link style={{color:'white'}} to="/user">Login</Link>
+                                        <Button onClick={this.requestLogin.bind(this)} bsStyle="primary">
+                                            {/*<Link style={{color:'white'}} to="/user">Login</Link>*/}
+                                            Login
                                         </Button>
                                       </Col>
                                     </FormGroup>
