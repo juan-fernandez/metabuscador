@@ -6,7 +6,8 @@ import {
    BrowserRouter as Router,
    Route,
    Link,
-   Redirect
+   Redirect,
+   Switch
 } from 'react-router-dom'
 
 import Layout from "./components/Layout"
@@ -32,16 +33,21 @@ const PrivateRoute = ({ component, ...rest }) => (
     )
   )}/>
 )
-
+const NoMatch = ({ location }) => (
+  <div>
+    <h3>No match for <code>{location.pathname}</code></h3>
+  </div>
+)
 
 ReactDOM.render(
    <Provider store={store}>
       <Router>
-         <div>
-            <Route exact path="/" component={Landing}/>
+         <Switch>
+            <Route path="/" exact component={Landing}/>
             <PrivateRoute path="/user" component={Layout}/>
             <PrivateRoute path="/buscador" component={Searcher}/>
-         </div>
+            <Route component={NoMatch}/>
+         </Switch>
       </Router>
    </Provider>,
 app);
