@@ -22,6 +22,7 @@ export default class Navbarhor extends React.Component{
       this.props.dispatch(logoutUser())
    }
    render(){
+      const {auth} = this.props;
       return(
          <Navbar inverse collapseOnSelect>
             <Navbar.Header>
@@ -32,8 +33,12 @@ export default class Navbarhor extends React.Component{
             </Navbar.Header>
             <Navbar.Collapse>
                  <Nav>
+                 {auth.user_type == 'proveedor' ?
                     <NavItem eventKey={1}><Link style={{color:'white'}} to="/user">Area de Usuario</Link></NavItem>
+                    :
+                    ""}
                     <NavItem eventKey={2}><Link style={{color:'white'}} to="/buscador">Buscador</Link></NavItem>
+
                     <NavItem eventKey={3} onClick={this.logoutUser.bind(this)}><Link style={{color:'white'}} to="/">Logout</Link></NavItem>
                  </Nav>
             </Navbar.Collapse>

@@ -39,12 +39,25 @@ const NoMatch = ({ location }) => (
   </div>
 )
 
+const ProveedorRoute = ({ component, ...rest }) => (
+  <Route {...rest} render={props => (
+    (store.getState().auth.isAuthenticated && store.getState().auth.user_type == 'proveedor') ? (
+      React.createElement(component, props)
+    ) : (
+      <Redirect to={{
+        pathname: '/',
+        state: { from: props.location }
+      }}/>
+    )
+  )}/>
+)
+
 ReactDOM.render(
    <Provider store={store}>
       <Router>
          <Switch>
             <Route path="/" exact component={Landing}/>
-            <PrivateRoute path="/user" component={Layout}/>
+            <ProveedorRoute path="/user" component={Layout}/>
             <PrivateRoute path="/buscador" component={Searcher}/>
             <Route component={NoMatch}/>
          </Switch>

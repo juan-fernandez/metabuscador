@@ -8,12 +8,13 @@ function requestLogin(creds) {
 }
 
 function receiveLogin(user) {
-  return {
-    type: 'LOGIN_SUCCESS',
-    isFetching: false,
-    isAuthenticated: true,
-    id_token: user.id_token
-  }
+   return {
+      type: 'LOGIN_SUCCESS',
+      isFetching: false,
+      isAuthenticated: true,
+      id_token: user.id_token,
+      user_type: user.user_type
+   }
 }
 
 function loginError(message) {
@@ -37,7 +38,8 @@ export function loginUser(creds) {
       // We dispatch requestLogin to kickoff the call to the API
       dispatch(requestLogin(creds))
 
-      return fetch('http://localhost:3002/sessions/create', config)
+      return fetch('https://micelocator-auth.herokuapp.com/sessions/create', config)
+      //return fetch("http://localhost:3002/sessions/create",config)
          .then(response =>
             response.json()
                .then(user => ({ user, response }))

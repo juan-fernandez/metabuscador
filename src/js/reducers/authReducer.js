@@ -1,7 +1,9 @@
 export default function reducer(
 state = {
    isFetching: false,
-   isAuthenticated: localStorage.getItem('id_token') ? true : false
+   isAuthenticated: localStorage.getItem('id_token') ? true : false,
+   user_type: "",
+   errorMessage: ""
 },
 action)
 {
@@ -16,7 +18,8 @@ action)
          return Object.assign({}, state, {
             isFetching: false,
             isAuthenticated: true,
-            errorMessage: ''
+            errorMessage: '',
+            user_type: action.user_type
          })
       case 'LOGIN_FAILURE':
          return Object.assign({}, state, {

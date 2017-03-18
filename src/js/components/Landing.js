@@ -42,10 +42,12 @@ export default class Landing extends React.Component{
    }
    render(){
       const {auth} = this.props;
-      console.log(auth)
       return(
             <Grid>
-               {auth.isAuthenticated ? <Redirect to="/user"/>:""}
+               {auth.isAuthenticated ?
+                  (auth.user_type == "proveedor" ? <Redirect to="/user"/>: <Redirect to="/buscador"/>)
+                  :
+                  ""}
                 <Row>
                     <Col xs={12} sm={12} md={4} lg={4} mdOffset={4} lgOffset={4}>
                         <div className="static-modal">
