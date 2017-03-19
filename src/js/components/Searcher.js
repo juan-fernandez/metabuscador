@@ -22,6 +22,9 @@ import {moment} from 'moment'
 
 import { DayPicker } from 'react-date-picker'
 
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 @connect((store) => {
     return {
@@ -31,9 +34,19 @@ import { DayPicker } from 'react-date-picker'
 })
 
 export default class Searcher extends React.Component {
+   constructor(){
+      super();
+      this.state={
+         chosen_event:null,
+         chosen_place:null,
+         date:null,
+         num_participants:null
+      }
+   }
     searchSpace(){
         this.props.dispatch(searchSpace())
     }
+     handleChange = (event, index, values) => this.setState({chosen_event:values});
 
     render(){
         const {searched_space} = this.props.spaces;
@@ -49,8 +62,16 @@ export default class Searcher extends React.Component {
         }
         const event_type= [
             {
-                value:"Coaching, seminarios, formación",
-                text:"Coaching, seminarios, formación"
+                value:"Coaching",
+                text:"Coaching"
+            },
+            {
+                value:"Seminarios",
+                text:"Seminarios"
+            },
+            {
+                value:"Formación",
+                text:"Formación"
             },
             {
                 value:"Conferencias",
@@ -116,7 +137,15 @@ export default class Searcher extends React.Component {
                 text:"Toledo"
             },
         ]
-
+        const drop_menu = event_type.map((event_t,index)=>{
+           return <MenuItem
+                     key={index}
+                     insetChildren={true}
+                     value={event_t.value}
+                     primaryText={event_t.value}
+                     />
+        })
+        const {chosen_event} = this.state;
       return(
          <div>
              <Grid>
@@ -133,23 +162,15 @@ export default class Searcher extends React.Component {
                      <Row>
                          <Col xs={12} sm={3} md={3} lg={3}>
                             <label for="event_type">¿Tipo de evento?</label>
-                            <FormGroup>
-                                <Combobox
-                                    options={event_type}
-                                    dropdownProps={{style:{width:'100%'}}}
-                                    autocomplete
-                                    autosize
-                                    >
-                                    {(inputProps,otherProps,registerInput)=>
-                                        <FormControl
-                                            {...inputProps}
-                                            ref={c=>registerInput(ReactDOM.findDOMNode(c))}
-                                            type='text'
-                                            placeholder='Elige el tipo de evento'>
-                                        </FormControl>
-                                    }
-                                </Combobox>
-                            </FormGroup>
+                            <MuiThemeProvider>
+                               <SelectField
+                                   hintText="Selecciona un tipo de evento"
+                                   value={chosen_event}
+                                   onChange={this.handleChange.bind(this)}
+                                 >
+                                    {drop_menu}
+                                 </SelectField>
+                              </MuiThemeProvider>
                          </Col>
                          <Col xs={12} sm={3} md={3} lg={3}>
                             <label for="event_where">¿Dónde?</label>
