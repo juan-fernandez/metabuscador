@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 import Navbarhor from "./Navbarhor"
 import MyHeader from "./MyHeader"
 
-import {Autosize, Autocomplete, Dropdown, Mask, DatePicker, Combobox } from "react-input-enhancements"
+import {Autosize, Autocomplete, Dropdown, Mask, Combobox } from "react-input-enhancements"
 
 import {FormGroup, Col, FormControl, Carousel, Navbar, Nav, NavItem, Grid, Row, Well, Button} from "react-bootstrap"
 
@@ -25,6 +25,11 @@ import { DayPicker } from 'react-date-picker'
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Paper from 'material-ui/Paper';
+import TextField from 'material-ui/TextField';
+import DatePicker from 'material-ui/DatePicker';
+import RaisedButton from 'material-ui/RaisedButton';
+import Search from 'material-ui/svg-icons/action/search';
 
 @connect((store) => {
     return {
@@ -156,6 +161,11 @@ export default class Searcher extends React.Component {
        })
         const {chosen_event} = this.state;
         const {chosen_place} = this.state;
+        const paper_style = {
+           margin: 10,
+           padding: 20,
+
+        }
       return(
          <div>
              <Grid>
@@ -168,11 +178,12 @@ export default class Searcher extends React.Component {
                  <MyHeader text="Buscador" logo={false}>
                  </MyHeader>
 
-                 <Well>
+                 <MuiThemeProvider>
+                 <Paper style={paper_style} zDepth={2}>
                      <Row>
                          <Col xs={12} sm={3} md={3} lg={3}>
                             <label for="event_type">¿Tipo de evento?</label>
-                            <MuiThemeProvider>
+
                                <SelectField
                                    hintText="Selecciona un tipo de evento"
                                    value={chosen_event}
@@ -180,11 +191,11 @@ export default class Searcher extends React.Component {
                                  >
                                     {drop_menu}
                                  </SelectField>
-                              </MuiThemeProvider>
+
                          </Col>
                          <Col xs={12} sm={3} md={3} lg={3}>
                             <label for="event_place">¿Dónde?</label>
-                            <MuiThemeProvider>
+
                                <SelectField
                                    hintText="Selecciona dónde"
                                    value={chosen_place}
@@ -192,51 +203,36 @@ export default class Searcher extends React.Component {
                                  >
                                     {drop_menu_place}
                                  </SelectField>
-                              </MuiThemeProvider>
+
                          </Col>
                          <Col xs={12} sm={3} md={3} lg={3}>
                             <label for="event_numero">¿Cuántos sois?</label>
-                            <FormGroup>
-                               <FormControl
-                                   type='text'
-                                   placeholder='Cuántos sois'>
-                               </FormControl>
-
-                            </FormGroup>
+                            <TextField
+                                 hintText="Número de asistentes"
+                               />
                          </Col>
                          <Col xs={12} sm={3} md={3} lg={3}>
                             <label for="event_fecha">Fecha</label>
-                            <FormGroup>
-                               <DatePicker
-                                   value={'mié. 15/03/2017'}
-                                   onValuePreUpdate={v => parseInt(v, 10) > 1e8 ?
-                                     moment(parseInt(v, 10)).format('ddd DD/MM/YYYY') : v
-                                   }
-                                   locale='es'
-                                   dropdownProps={{style:{width:'100%'}}}
-                                 >
-
-                                   {(inputProps, otherProps,registerInput ) =>
-                                     <FormControl
-                                       {...inputProps}
-                                       style={{ ...inputProps.style, fontFamily: 'monospace' }}
-                                       ref={c => registerInput(ReactDOM.findDOMNode(c))}
-                                       type='text'
-                                     />
-                                   }
-                                 </DatePicker>
-                              </FormGroup>
+                            <DatePicker />
                          </Col>
 
                      </Row>
                      <Row>
                         <Col style={padding_button} xs={12} sm={3} md={3} lg={3} xsOffset={0} smOffset={9} mdOffset={9} lgOffset={9}>
-                           <Button onClick={this.searchSpace.bind(this)} bsStyle="primary" bsSize="large" block>Buscar</Button>
 
+                           <RaisedButton
+                              style={{width:'100%'}}
+                              label="Buscar"
+                              labelPosition="before"
+                              primary={true}
+                              icon={<Search />}
+                              onClick={this.searchSpace.bind(this)}
+                            />
                         </Col>
                      </Row>
 
-                 </Well>
+                 </Paper>
+                 </MuiThemeProvider>
                {
                   searched_space? list_spaces:""
                }
