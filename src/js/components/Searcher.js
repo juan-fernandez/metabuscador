@@ -47,6 +47,7 @@ export default class Searcher extends React.Component {
         this.props.dispatch(searchSpace())
     }
      handleChange = (event, index, values) => this.setState({chosen_event:values});
+     handleChangeWhere = (event, index, values) => this.setState({chosen_place:values});
 
     render(){
         const {searched_space} = this.props.spaces;
@@ -145,7 +146,16 @@ export default class Searcher extends React.Component {
                      primaryText={event_t.value}
                      />
         })
+       const drop_menu_place = event_place.map((event_w,index)=>{
+          return <MenuItem
+                    key={index}
+                    insetChildren={true}
+                    value={event_w.value}
+                    primaryText={event_w.value}
+                    />
+       })
         const {chosen_event} = this.state;
+        const {chosen_place} = this.state;
       return(
          <div>
              <Grid>
@@ -173,24 +183,16 @@ export default class Searcher extends React.Component {
                               </MuiThemeProvider>
                          </Col>
                          <Col xs={12} sm={3} md={3} lg={3}>
-                            <label for="event_where">¿Dónde?</label>
-                            <FormGroup>
-                                <Combobox
-                                    options={event_place}
-                                    dropdownProps={{style:{width:'100%'}}}
-                                    autocomplete
-                                    autosize
-                                    >
-                                    {(inputProps,otherProps,registerInput)=>
-                                        <FormControl
-                                            {...inputProps}
-                                            ref={c=>registerInput(ReactDOM.findDOMNode(c))}
-                                            type='text'
-                                            placeholder='Elige el lugar'>
-                                        </FormControl>
-                                    }
-                                </Combobox>
-                            </FormGroup>
+                            <label for="event_place">¿Dónde?</label>
+                            <MuiThemeProvider>
+                               <SelectField
+                                   hintText="Selecciona dónde"
+                                   value={chosen_place}
+                                   onChange={this.handleChangeWhere.bind(this)}
+                                 >
+                                    {drop_menu_place}
+                                 </SelectField>
+                              </MuiThemeProvider>
                          </Col>
                          <Col xs={12} sm={3} md={3} lg={3}>
                             <label for="event_numero">¿Cuántos sois?</label>
