@@ -4,7 +4,7 @@ import {Menu, MenuItem} from 'material-ui/Menu';
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Date from 'material-ui/svg-icons/action/date-range'
-import Book from 'material-ui/svg-icons/action/book'
+import Building from 'material-ui/svg-icons/social/domain'
 
 export default class MyNavbar extends React.Component{
 
@@ -33,7 +33,7 @@ export default class MyNavbar extends React.Component{
         const {items,onClick,selected} = this.props;
         const list = items.map((item)=>{
             return <MenuItem
-                        leftIcon={item.id == 1 ? <Date/>:<Book/>}
+                        leftIcon={item.id == 1 ? <Date/>:<Building/>}
                         style={MyStyle.menuItem}
                         primaryText={item.text}
                         onClick={()=>{onClick(item.id)}}
