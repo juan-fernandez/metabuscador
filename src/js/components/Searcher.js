@@ -31,6 +31,8 @@ import DatePicker from 'material-ui/DatePicker';
 import RaisedButton from 'material-ui/RaisedButton';
 import Search from 'material-ui/svg-icons/action/search';
 
+
+
 @connect((store) => {
     return {
         spaces: store.spaces,
@@ -209,6 +211,7 @@ export default class Searcher extends React.Component {
                             <label for="event_numero">¿Cuántos sois?</label>
                             <TextField
                                  hintText="Número de asistentes"
+                                 name="event_numero"
                                />
                          </Col>
                          <Col xs={12} sm={3} md={3} lg={3}>

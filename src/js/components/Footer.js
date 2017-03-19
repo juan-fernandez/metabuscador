@@ -16,13 +16,13 @@ export default class Footer extends React.Component {
          <MuiThemeProvider>
             <Paper style={style} zDepth={2}>
                <footer  class="text-center">
-                  <p><img width="60px" src="resources/7_logo.png"/>Made by 7inEvent <a style={{color:'white'}} href="http://www.7inevent.com">7inevent.com</a></p>
+                  <p><a style={{color:'white'}} href="http://www.7inevent.com"><img width="180px" src="resources/by_EventFriends.png"></img></a></p>
                </footer>
             </Paper>
          </MuiThemeProvider>
 
 
       )
-   }
+      }
 
 }
