@@ -62,14 +62,22 @@ export default class Navbarhor extends React.Component{
          },
          tab:{
             backgroundColor: '#3F51B5'
+         },
+         title:{
+            cursor: 'pointer'
+         },
+         img:{
+            display:'inline-block',
+            width: '5%'
          }
       };
       return(
          <div>
             <MuiThemeProvider>
                <AppBar
+                  showMenuIconButton={true}
                   zDepth={2}
-                  title="Micelocator"
+                  title={<span style={styles.title}>Micelocator</span>}
                   style={styles.appBar}
                   iconElementRight={<FlatButton
                                     containerElement={<Link to="/"/>}
