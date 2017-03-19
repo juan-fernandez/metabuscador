@@ -1,4 +1,6 @@
 import React from "react"
+import Paper from 'material-ui/Paper';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export default class Footer extends React.Component {
     render(){
@@ -7,12 +9,19 @@ export default class Footer extends React.Component {
          color: '#fff',
          paddingTop: '40px',
          paddingBottom: '40px',
-         marginTop: '20px'
+         marginTop: '10px',
+         marginBottom: '10px'
       }
         return(
-            <footer style={style} class="text-center">
+           <MuiThemeProvider>
+           <Paper style={style} zDepth={2}>
+            <footer  class="text-center">
               <p>Made by 7inEvent <a style={{color:'white'}} href="http://www.7inevent.com">7inevent.com</a></p>
             </footer>
+           </Paper>
+           </MuiThemeProvider>
+
+
         )
     }
 
