@@ -136,7 +136,7 @@ export default class Space extends React.Component {
                            </Col>
                            <Col xs={12} sm={12} md={8} lg={8}>
                               <List>
-                                 <ListItem primaryText={info.superficie+" m2"} leftIcon={<People />} />
+                                 <ListItem primaryText={<div>{info.superficie} m<sup>2</sup></div>} leftIcon={<People />} />
                                  <ListItem primaryText={info.precio+' €'} leftIcon={<Euro />} />
 
                               </List>
