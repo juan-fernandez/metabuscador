@@ -54,14 +54,14 @@ export default class Navbarhor extends React.Component{
       const styles = {
          appBar: {
             flexWrap: 'wrap',
-            backgroundColor: '#673AB7'
+            backgroundColor: '#3F51B5'
          },
          tabs: {
             width: '100%',
 
          },
          tab:{
-            backgroundColor: '#673AB7'
+            backgroundColor: '#3F51B5'
          }
       };
       return(
