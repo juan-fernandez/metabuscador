@@ -17,8 +17,15 @@ import Landing from "./components/Landing"
 
 import store from "./store"
 
-const app = document.getElementById('app')
+// material ui
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
+
+
+const app = document.getElementById('app')
 
 
 const PrivateRoute = ({ component, ...rest }) => (

@@ -7,9 +7,35 @@ import {Navbar, Nav, NavItem} from "react-bootstrap"
 
 import {logoutUser} from '../actions/authActions'
 
+// Material ui
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+import IconButton from 'material-ui/IconButton';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import RaisedButton from 'material-ui/RaisedButton';
+
+import {AppBar, Tabs, Tab, ToolbarGroup, FlatButton} from 'material-ui'
+import FontIcon from 'material-ui/FontIcon';
+import Home from 'material-ui/svg-icons/action/home';
+import Search from 'material-ui/svg-icons/action/search';
+import Power from 'material-ui/svg-icons/action/power-settings-new'
+
+import {
+  cyan500, cyan700,
+  pinkA200,
+  grey100, grey300, grey400, grey500,
+  white, darkBlack, fullBlack,
+} from 'material-ui/styles/colors';
+
+
 import {
    Redirect
 } from 'react-router-dom'
+
+
+
 
 @connect((store) => {
     return {
@@ -17,32 +43,46 @@ import {
     };
 })
 
+
 export default class Navbarhor extends React.Component{
    logoutUser(){
       this.props.dispatch(logoutUser())
    }
    render(){
       const {auth} = this.props;
-      return(
-         <Navbar inverse collapseOnSelect>
-            <Navbar.Header>
-                 <Navbar.Brand>
-                    <a href="#">Micelocator</a>
-                 </Navbar.Brand>
-                 <Navbar.Toggle />
-            </Navbar.Header>
-            <Navbar.Collapse>
-                 <Nav>
-                 {auth.user_type == 'proveedor' ?
-                    <NavItem eventKey={1}><Link style={{color:'white'}} to="/user">Area de Usuario</Link></NavItem>
-                    :
-                    ""}
-                    <NavItem eventKey={2}><Link style={{color:'white'}} to="/buscador">Buscador</Link></NavItem>
+      const styles = {
+         appBar: {
+            flexWrap: 'wrap',
+            backgroundColor: '#673AB7'
+         },
+         tabs: {
+            width: '100%',
 
-                    <NavItem eventKey={3} onClick={this.logoutUser.bind(this)}><Link style={{color:'white'}} to="/">Logout</Link></NavItem>
-                 </Nav>
-            </Navbar.Collapse>
-         </Navbar>
+         },
+         tab:{
+            backgroundColor: '#673AB7'
+         }
+      };
+      return(
+         <div>
+            <MuiThemeProvider>
+               <AppBar
+                  title="Micelocator"
+                  style={styles.appBar}
+                  iconElementRight={<FlatButton
+                                    label="Logout"
+                                    labelPosition="before"
+                                    primary={true}
+                                    icon={<Power/>}
+                                    />}
+               >
+                  <Tabs style={styles.tabs}>
+                     <Tab style={styles.tab} icon={<Home/>} label={"Área de usuario"} />
+                     <Tab style={styles.tab} icon={<Search/>} label={'Buscador'} />
+                  </Tabs>
+               </AppBar>
+            </MuiThemeProvider>
+         </div>
       )
    }
 }
