@@ -68,6 +68,7 @@ export default class Navbarhor extends React.Component{
          <div>
             <MuiThemeProvider>
                <AppBar
+                  zDepth={2}
                   title="Micelocator"
                   style={styles.appBar}
                   iconElementRight={<FlatButton
