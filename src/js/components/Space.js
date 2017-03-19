@@ -1,6 +1,22 @@
 import React from "react"
 import {Col, Panel, Carousel, Row, Well, Button, Glyphicon, Modal} from "react-bootstrap"
 
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+
+import Message from 'material-ui/svg-icons/action/question-answer'
+import Settings from 'material-ui/svg-icons/action/view-headline'
+import Euro from 'material-ui/svg-icons/action/euro-symbol'
+import People from 'material-ui/svg-icons/social/people'
+
+import {List, ListItem} from "material-ui/List"
+
+
 export default class Space extends React.Component {
 
     constructor(){
@@ -89,28 +105,62 @@ export default class Space extends React.Component {
                 </Modal>
                 <Modal show={this.state.showConfirmation} onHide={this.close.bind(this)}>
                     <Modal.Body style={{paddingTop:'20px'}}>
-                        <Glyphicon glyph="ok" /> ¡Mensaje enviado! 
+                        <Glyphicon glyph="ok" /> ¡Mensaje enviado!
                     </Modal.Body>
                 </Modal>
-                <Row>
-                   <Panel header={info.nombre}>
-                      <Col xs={12} sm={12} md={8} lg={8}>
-                         <Carousel>
-                            {carousel}
-                         </Carousel>
-                      </Col>
-                      <Col xs={12} sm={12} md={4} lg={4}>
-                         <Well>
-                            <img width={'90%'} src={"resources/logo.png"}/>
-                            <h3>{info.nombre}</h3>
-                            <h3>Superficie: {info.superficie} m2</h3>
-                            <h3>Precio: {info.precio} €/día</h3>
-                            <Button onClick={this.openBooking.bind(this)}><Glyphicon glyph="envelope" /> Reserva</Button>
-                            <Button onClick={this.openTechnical.bind(this)}><Glyphicon glyph="list-alt" /> Ficha técnica</Button>
-                         </Well>
-                      </Col>
-                   </Panel>
-                </Row>
+
+               <MuiThemeProvider>
+                  <Card
+                     style={
+                        {
+                           margin:'10px'
+                        }
+                     }
+                     zDepth={3}
+                     >
+                     <CardHeader
+                        title={info.nombre}
+                        subtitle={"Lienzo Norte"}
+                     />
+                     <CardMedia
+                        overlay={<CardTitle title={info.nombre} subtitle={"Lienzo Norte"} />}
+                     >
+                        <Carousel>
+                           {carousel}
+                        </Carousel>
+                     </CardMedia>
+                     <CardText>
+                        <Row>
+                           <Col xs={12} sm={12} md={4} lg={4}>
+                              <img width="100%" src="resources/logo.png"/>
+                           </Col>
+                           <Col xs={12} sm={12} md={8} lg={8}>
+                              <List>
+                                 <ListItem primaryText={info.superficie+" m2"} leftIcon={<People />} />
+                                 <ListItem primaryText={info.precio+' €'} leftIcon={<Euro />} />
+
+                              </List>
+                           </Col>
+                        </Row>
+
+
+                     </CardText>
+                     <CardActions>
+                        <FlatButton
+                           labelPosition="before"
+                           label="Reserva"
+                           icon={<Message/>}
+                           onClick={this.openBooking.bind(this)}
+                        />
+                        <FlatButton
+                           labelPosition="before"
+                           label="Ficha técnica"
+                           icon={<Settings/>}
+                           onClick={this.openTechnical.bind(this)}
+                        />
+                     </CardActions>
+                  </Card>
+               </MuiThemeProvider>
             </div>
 
 
