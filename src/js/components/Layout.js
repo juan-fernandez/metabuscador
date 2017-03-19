@@ -40,8 +40,9 @@ import {Link} from 'react-router-dom'
 })
 export default class Layout extends React.Component {
 
-   changeView(event){
-      this.props.dispatch(changeView(event.target.id))
+   changeView(id){
+      console.log("click event",id)
+      this.props.dispatch(changeView(id))
    }
    addEvent(date){
       this.props.dispatch(addEvent(date))
@@ -94,13 +95,13 @@ export default class Layout extends React.Component {
 
 
                     <Row>
-                        <Col xs={12} sm={4} md={2}>
+                        <Col xs={12} sm={4} md={3}>
                             <MyNavbar selected={selected[0].id} items={navbar_items} onClick={this.changeView.bind(this)}>
                             </MyNavbar>
                         </Col>
 
 
-                        <Col xs={12} sm={8} md={10}>
+                        <Col xs={12} sm={8} md={9}>
                             <MainPanel clickPlanner={this.toggleEvent.bind(this)} moveEvent={this.moveEvent.bind(this)} clickEvent={this.clickEvent.bind(this)} addEvent={this.addEvent.bind(this)} selected={selected[0].id}>
                             </MainPanel>
                         </Col>

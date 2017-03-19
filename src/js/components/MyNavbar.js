@@ -1,22 +1,59 @@
 import React from "react"
+import Divider from 'material-ui/Divider';
+import {Menu, MenuItem} from 'material-ui/Menu';
+import Paper from 'material-ui/Paper';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Date from 'material-ui/svg-icons/action/date-range'
+import Book from 'material-ui/svg-icons/action/book'
 
 export default class MyNavbar extends React.Component{
 
-    render(){
-        const style={
-            cursor: 'pointer'
-        }
-        const {items,onClick,selected} = this.props;
+      render(){
+         const style={
+            cursor: 'pointer',
+            float: 'left',
+         }
+         const MyStyle = {
+            paper: {
+                display: 'inline-block',
+                float: 'left',
+                marginBottom: '20px'
+            },
+            rightIcon: {
+               textAlign: 'center',
+               lineHeight: '24px',
+            },
+            menuItem:{
 
+            },
+            menu:{
+            }
+         };
+
+        const {items,onClick,selected} = this.props;
         const list = items.map((item)=>{
-            return <a onClick={onClick} id={item.id} key={item.id} class={selected === item.id ? "list-group-item active":"list-group-item"}>{item.text}</a>
+            return <MenuItem
+                        leftIcon={item.id == 1 ? <Date/>:<Book/>}
+                        style={MyStyle.menuItem}
+                        primaryText={item.text}
+                        onClick={()=>{onClick(item.id)}}
+                        id={item.id}
+                        key={item.id}
+                        />
         })
 
 
         return(
-                <div style={style} class="list-group">
-                    {list}
-                </div>
+               <MuiThemeProvider>
+                <Paper
+                  style={MyStyle.paper}>
+                  <Menu
+                     style={MyStyle.menu}
+                  >
+                     {list}
+                  </Menu>
+                </Paper>
+               </MuiThemeProvider>
         )
     }
 }

@@ -2,7 +2,7 @@ export default function reducer(
 state = {
    isFetching: false,
    isAuthenticated: localStorage.getItem('id_token') ? true : false,
-   user_type: "",
+   user_type: "proveedor",
    errorMessage: ""
 },
 action)
