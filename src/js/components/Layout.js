@@ -75,9 +75,11 @@ export default class Layout extends React.Component {
    render() {
       const {spaces,events} = this.props;
       const {navbar_items} = spaces;
+      console.log("navbar_items",navbar_items)
       const selected = navbar_items.filter((item)=>{
       return item.selected === true;
       })
+      console.log(selected)
 
 
         return(
@@ -85,7 +87,7 @@ export default class Layout extends React.Component {
             <div>
 
                 <Grid>
-                    <Navbarhor>
+                    <Navbarhor selected={selected[0].id}>
                     </Navbarhor>
 
 
@@ -96,7 +98,7 @@ export default class Layout extends React.Component {
 
                     <Row>
                         <Col xs={12} sm={4} md={3}>
-                            <MyNavbar selected={selected[0].id} items={navbar_items} onClick={this.changeView.bind(this)}>
+                            <MyNavbar selected={selected[0].id} items={navbar_items} onMyClick={this.changeView.bind(this)}>
                             </MyNavbar>
                         </Col>
 

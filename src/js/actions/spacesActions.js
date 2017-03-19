@@ -1,4 +1,5 @@
 export function changeView(target_id){
+   console.log("change view action")
     return {
         type: "CHANGE_VIEW",
         payload:{

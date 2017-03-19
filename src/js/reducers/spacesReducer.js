@@ -18,6 +18,7 @@ action)
 {
     switch (action.type) {
         case "CHANGE_VIEW":{
+           console.log("action",action.payload)
             return {
                 ...state,
                 navbar_items: state.navbar_items.map((item)=>{

@@ -49,8 +49,8 @@ export default class Navbarhor extends React.Component{
       this.props.dispatch(logoutUser())
    }
    render(){
-      const {auth} = this.props;
-      console.log(auth)
+      const {auth,selected} = this.props;
+      console.log("selected",selected)
       const styles = {
          appBar: {
             flexWrap: 'wrap',
@@ -89,7 +89,10 @@ export default class Navbarhor extends React.Component{
                                     />
                                  }
                >
-                  <Tabs style={styles.tabs}>
+                  <Tabs
+                  style={styles.tabs}
+                  value={selected}
+                  >
                      {auth.user_type == 'proveedor' ?
                                          <Tab
                                            containerElement={<Link to="/user"/>}

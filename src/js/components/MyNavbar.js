@@ -30,13 +30,14 @@ export default class MyNavbar extends React.Component{
             }
          };
 
-        const {items,onClick,selected} = this.props;
+        const {items,onMyClick,selected} = this.props;
+        console.log(onMyClick)
         const list = items.map((item)=>{
             return <MenuItem
                         leftIcon={item.id == 1 ? <Date/>:<Building/>}
                         style={MyStyle.menuItem}
                         primaryText={item.text}
-                        onClick={()=>{onClick(item.id)}}
+                        onTouchTap={()=>{onMyClick(item.id)}}
                         id={item.id}
                         key={item.id}
                         />
