@@ -50,6 +50,7 @@ export default class Navbarhor extends React.Component{
    }
    render(){
       const {auth} = this.props;
+      console.log(auth)
       const styles = {
          appBar: {
             flexWrap: 'wrap',
@@ -70,19 +71,35 @@ export default class Navbarhor extends React.Component{
                   title="Micelocator"
                   style={styles.appBar}
                   iconElementRight={<FlatButton
+                                    containerElement={<Link to="/"/>}
                                     label="Logout"
                                     labelPosition="before"
                                     primary={true}
                                     icon={<Power/>}
-                                    />}
+                                    onClick={this.logoutUser.bind(this)}
+                                    />
+                                 }
                >
                   <Tabs style={styles.tabs}>
-                     <Tab style={styles.tab} icon={<Home/>} label={"Área de usuario"} />
-                     <Tab style={styles.tab} icon={<Search/>} label={'Buscador'} />
+                     {auth.user_type == 'proveedor' ?
+                                         <Tab
+                                           containerElement={<Link to="/user"/>}
+                                           style={styles.tab}
+                                           icon={<Home/>}
+                                           label={"Área de proveedor"}
+                                           />
+                                         :
+                                          ""}
+                     <Tab
+                        containerElement={<Link to="/buscador"/>}
+                        style={styles.tab}
+                        icon={<Search/>}
+                        label={'Buscador'} />
                   </Tabs>
                </AppBar>
             </MuiThemeProvider>
          </div>
+
       )
    }
 }
