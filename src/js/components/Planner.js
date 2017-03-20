@@ -10,9 +10,10 @@ import { connect } from "react-redux"
 
 export default class Planner extends React.Component{
     componentDidMount() {
+        console.log("did mount")
         const {tabella} = this.refs;
         const {events,clickEvent} = this.props;
-        //console.log("did mount")
+
         var data = {};
         data.tableHeader = [];
         var from = events.date_range.from;
@@ -50,8 +51,9 @@ export default class Planner extends React.Component{
                 let container = element.parentElement.parentElement.parentElement;
                 //console.log(element.parentElement.parentElement)
                 container.addEventListener('click',(event)=>{
-                    console.log("clicked!",event)
-                    clickEvent(element.id);
+                    event.preventDefault();
+                    clickEvent(element.id)
+
                     return false;
                 })
             }
@@ -66,6 +68,7 @@ export default class Planner extends React.Component{
         })
     }
    componentWillReceiveProps(nextProps){
+       console.log("received props");
       const {events,clickEvent} = nextProps;
       //console.log("props")
       document.querySelectorAll('span').forEach((element)=>{
@@ -88,16 +91,14 @@ export default class Planner extends React.Component{
          container.style.backgroundColor = 'rgb(233, 196, 196)';
       })
    }
-   componentWillUnmount(){
-      const {tabella} = this.refs;
-      //console.log("un mount")
-   }
    render(){
-
-
+      console.log("re render")
       return(
-         <div class="tabella-ctr" ref="tabella">
-         </div>
+
+              <div style={{paddingRight:'10px',height:'500px',overflowX:'hidden',overflowY:'scroll',margin:'0'}} class="tabella-ctr" ref="tabella">
+
+              </div>
+
       )
    }
 }
