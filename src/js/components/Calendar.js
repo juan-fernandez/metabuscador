@@ -36,6 +36,7 @@ export default class Calendar extends React.Component{
                             allDay: true,
                         }
                     })}
+                    views={['month']}
                     culture='es'
                     defaultDate={new Date(moment())}
                     >
