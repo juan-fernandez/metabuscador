@@ -7,6 +7,13 @@ import {Navbar, Nav, NavItem} from "react-bootstrap"
 
 import {logoutUser} from '../actions/authActions'
 
+import {change_tab} from "../actions/navActions"
+
+import {
+    Redirect
+} from 'react-router-dom'
+
+
 // Material ui
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
@@ -23,16 +30,13 @@ import Search from 'material-ui/svg-icons/action/search';
 import Power from 'material-ui/svg-icons/action/power-settings-new'
 
 import {
-  cyan500, cyan700,
-  pinkA200,
-  grey100, grey300, grey400, grey500,
-  white, darkBlack, fullBlack,
+    cyan500, cyan700,
+    pinkA200,
+    grey100, grey300, grey400, grey500,
+    white, darkBlack, fullBlack,
 } from 'material-ui/styles/colors';
 
 
-import {
-   Redirect
-} from 'react-router-dom'
 
 
 
@@ -40,39 +44,62 @@ import {
 @connect((store) => {
     return {
         auth: store.auth,
+        nav: store.nav
     };
 })
 
 
 export default class Navbarhor extends React.Component{
-   logoutUser(){
-      this.props.dispatch(logoutUser())
-   }
-   render(){
-      const {auth,selected} = this.props;
-      console.log("selected",selected)
-      const styles = {
-         appBar: {
-            flexWrap: 'wrap',
-            backgroundColor: '#3F51B5'
-         },
-         tabs: {
-            width: '100%',
+    logoutUser(){
+        this.props.dispatch(logoutUser())
+    }
+    changeTab(value){
+        this.props.dispatch(change_tab(value))
+    }
+    render(){
+        const styles = {
+            appBar: {
+                flexWrap: 'wrap',
+                backgroundColor: '#3F51B5'
+            },
+            tabs: {
+                width: '100%',
+            },
+            tab:{
+                backgroundColor: '#3F51B5'
+            },
+            title:{
+                cursor: 'pointer'
+            },
+            img:{
+                display:'inline-block',
+                width: '5%'
+            }
+        };
+        const {auth, nav} = this.props; // tabs
+        const {tabs, selected_tab} = nav;
+        const {user_type} = auth;
 
-         },
-         tab:{
-            backgroundColor: '#3F51B5'
-         },
-         title:{
-            cursor: 'pointer'
-         },
-         img:{
-            display:'inline-block',
-            width: '5%'
-         }
-      };
-      return(
-         <div>
+        const filtered_tabs = tabs.filter((tab)=>{
+            return tab.roles.some((role)=>{
+                return role === user_type
+            })
+        })
+
+        const show_tabs = filtered_tabs.map((tab)=>{
+            return(
+                <Tab
+                    key={tab.id}
+                    containerElement={tab.id == "1" ? <Link to="/user"/>:<Link to="/buscador"/>}
+                    style={styles.tab}
+                    icon={tab.id == "1" ? <Home/>:<Search/>}
+                    label={tab.text}
+                    value={tab.id}
+                />
+            )
+        })
+
+        return(
             <MuiThemeProvider>
                <AppBar
                   showMenuIconButton={true}
@@ -90,27 +117,14 @@ export default class Navbarhor extends React.Component{
                                  }
                >
                   <Tabs
-                  style={styles.tabs}
-                  value={selected}
+                      style={styles.tabs}
+                      value={selected_tab}
+                      onChange={this.changeTab.bind(this)}
                   >
-                     {auth.user_type == 'proveedor' ?
-                                         <Tab
-                                           containerElement={<Link to="/user"/>}
-                                           style={styles.tab}
-                                           icon={<Home/>}
-                                           label={"Área de proveedor"}
-                                           />
-                                         :
-                                          ""}
-                     <Tab
-                        containerElement={<Link to="/buscador"/>}
-                        style={styles.tab}
-                        icon={<Search/>}
-                        label={'Buscador'} />
+                     {show_tabs}
                   </Tabs>
                </AppBar>
             </MuiThemeProvider>
-         </div>
 
       )
    }

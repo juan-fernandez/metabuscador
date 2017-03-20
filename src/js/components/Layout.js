@@ -35,76 +35,69 @@ import {Link} from 'react-router-dom'
 @connect((store) => {
     return {
         spaces: store.spaces,
-        events: store.events
+        events: store.events,
+        auth: store.auth,
+        nav: store.nav
     };
 })
 export default class Layout extends React.Component {
 
-   changeView(id){
-      console.log("click event",id)
-      this.props.dispatch(changeView(id))
-   }
-   addEvent(date){
-      this.props.dispatch(addEvent(date))
-   }
-   closeModal(event){
-      this.props.dispatch(closeModal())
-   }
-   newEvent(){
-      this.props.dispatch(new_event())
-      this.props.dispatch(closeModal())
-   }
-   updateSpace(ev){
-      this.props.dispatch(updateSpace(ev.target.value))
-   }
-   clickEvent(date){
-      //console.log("clicked date: ",date)
-      this.props.dispatch(clickEvent(date))
-   }
-   removeEvent(){
-      this.props.dispatch(removeEvent());
-   }
-   moveEvent(date,delta){
-      //console.log("move event", calEvent,delta)
-      this.props.dispatch(moveEvent(date,delta))
-   }
-   toggleEvent(id){
-      this.props.dispatch(toggleEvent(id));
-   }
+    changeView(id){
+        console.log("click event",id)
+        this.props.dispatch(changeView(id))
+    }
+    addEvent(date){
+        this.props.dispatch(addEvent(date))
+    }
+    closeModal(event){
+        this.props.dispatch(closeModal())
+    }
+    newEvent(){
+        this.props.dispatch(new_event())
+        this.props.dispatch(closeModal())
+    }
+    updateSpace(ev){
+        this.props.dispatch(updateSpace(ev.target.value))
+    }
+    clickEvent(date){
+        //console.log("clicked date: ",date)
+        this.props.dispatch(clickEvent(date))
+    }
+    removeEvent(){
+        this.props.dispatch(removeEvent());
+    }
+    moveEvent(date,delta){
+        //console.log("move event", calEvent,delta)
+        this.props.dispatch(moveEvent(date,delta))
+    }
+    toggleEvent(id){
+        this.props.dispatch(toggleEvent(id));
+    }
 
-   render() {
-      const {spaces,events} = this.props;
-      const {navbar_items} = spaces;
-      console.log("navbar_items",navbar_items)
-      const selected = navbar_items.filter((item)=>{
-      return item.selected === true;
-      })
-      console.log(selected)
-
+    render() {
+        const {spaces,events, auth, nav} = this.props;
+        const {selected_provider_view, provider_view, tabs, selected_tab} = nav;
+        const {user_type} = auth;
 
         return(
 
             <div>
-
                 <Grid>
-                    <Navbarhor selected={selected[0].id}>
+                    <Navbarhor>
                     </Navbarhor>
-
-
 
                     <MyHeader text="Área de Usuario" logo={true}>
                     </MyHeader>
 
-
                     <Row>
                         <Col xs={12} sm={4} md={3}>
-                            <MyNavbar selected={selected[0].id} items={navbar_items} onMyClick={this.changeView.bind(this)}>
+                            <MyNavbar selected={selected_provider_view} items={provider_view} onMyClick={this.changeView.bind(this)}>
                             </MyNavbar>
                         </Col>
 
 
                         <Col xs={12} sm={8} md={9}>
-                            <MainPanel clickPlanner={this.toggleEvent.bind(this)} moveEvent={this.moveEvent.bind(this)} clickEvent={this.clickEvent.bind(this)} addEvent={this.addEvent.bind(this)} selected={selected[0].id}>
+                            <MainPanel clickPlanner={this.toggleEvent.bind(this)} moveEvent={this.moveEvent.bind(this)} clickEvent={this.clickEvent.bind(this)} addEvent={this.addEvent.bind(this)} selected={selected_provider_view}>
                             </MainPanel>
                         </Col>
                     </Row>

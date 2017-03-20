@@ -190,6 +190,7 @@ export default class Searcher extends React.Component {
                                    hintText="Selecciona un tipo de evento"
                                    value={chosen_event}
                                    onChange={this.handleChange.bind(this)}
+                                   id="tipo"
                                  >
                                     {drop_menu}
                                  </SelectField>
@@ -202,6 +203,7 @@ export default class Searcher extends React.Component {
                                    hintText="Selecciona dónde"
                                    value={chosen_place}
                                    onChange={this.handleChangeWhere.bind(this)}
+                                   id="donde"
                                  >
                                     {drop_menu_place}
                                  </SelectField>
@@ -212,6 +214,7 @@ export default class Searcher extends React.Component {
                             <TextField
                                  hintText="Número de asistentes"
                                  name="event_numero"
+                                 id="numero"
                                />
                          </Col>
                          <Col xs={12} sm={3} md={3} lg={3}>

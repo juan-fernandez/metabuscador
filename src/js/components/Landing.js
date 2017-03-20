@@ -93,7 +93,7 @@ export default class Landing extends React.Component{
             <MuiThemeProvider>
                 <Grid>
                     {auth.isAuthenticated ?
-                    (auth.user_type == "proveedor" ? <Redirect to="/user"/>: <Redirect to="/buscador"/>)
+                    <Redirect to="/buscador"/>
                     :
                     ""}
                     <Row style={style.landing_style}>
@@ -116,6 +116,7 @@ export default class Landing extends React.Component{
                                 <img width="100%" src="/resources/micelocator.png">
                                 </img>
                                 <TextField
+                                    id="email"
                                     style={style.text_style}
                                     hintText="Tu E-mail"
                                     floatingLabelText="E-Mail"
@@ -124,6 +125,7 @@ export default class Landing extends React.Component{
                                 />
                                 <br/>
                                 <TextField
+                                    id="password"
                                     style={style.text_style}
                                     hintText="Tu contraseña"
                                     floatingLabelText="Contraseña"

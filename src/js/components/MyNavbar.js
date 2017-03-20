@@ -8,30 +8,29 @@ import Building from 'material-ui/svg-icons/social/domain'
 
 export default class MyNavbar extends React.Component{
 
-      render(){
-         const style={
+    render(){
+        const style={
             cursor: 'pointer',
             float: 'left',
-         }
-         const MyStyle = {
+        }
+        const MyStyle = {
             paper: {
                 display: 'inline-block',
                 float: 'left',
                 marginBottom: '20px'
             },
             rightIcon: {
-               textAlign: 'center',
-               lineHeight: '24px',
+                textAlign: 'center',
+                lineHeight: '24px',
             },
             menuItem:{
 
             },
             menu:{
             }
-         };
+        };
 
         const {items,onMyClick,selected} = this.props;
-        console.log(onMyClick)
         const list = items.map((item)=>{
             return <MenuItem
                         leftIcon={item.id == 1 ? <Date/>:<Building/>}
