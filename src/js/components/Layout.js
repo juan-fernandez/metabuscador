@@ -15,7 +15,7 @@ import {
 } from 'react-router-dom'
 
 
-import {changeView} from "../actions/spacesActions"
+import {provider_change_view} from "../actions/navActions"
 
 import {addEvent,
       closeModal,
@@ -42,9 +42,8 @@ import {Link} from 'react-router-dom'
 })
 export default class Layout extends React.Component {
 
-    changeView(id){
-        console.log("click event",id)
-        this.props.dispatch(changeView(id))
+    provider_change_view(id){
+        this.props.dispatch(provider_change_view(id))
     }
     addEvent(date){
         this.props.dispatch(addEvent(date))
@@ -91,7 +90,7 @@ export default class Layout extends React.Component {
 
                     <Row>
                         <Col xs={12} sm={4} md={3}>
-                            <MyNavbar selected={selected_provider_view} items={provider_view} onMyClick={this.changeView.bind(this)}>
+                            <MyNavbar selected={selected_provider_view} items={provider_view} onMyClick={this.provider_change_view.bind(this)}>
                             </MyNavbar>
                         </Col>
 

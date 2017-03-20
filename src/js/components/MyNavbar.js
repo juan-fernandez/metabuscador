@@ -44,16 +44,17 @@ export default class MyNavbar extends React.Component{
 
 
         return(
-               <MuiThemeProvider>
+            <MuiThemeProvider>
                 <Paper
-                  style={MyStyle.paper}>
-                  <Menu
-                     style={MyStyle.menu}
-                  >
-                     {list}
-                  </Menu>
+                    style={MyStyle.paper}
+                >
+                    <Menu
+                        style={MyStyle.menu}
+                    >
+                        {list}
+                    </Menu>
                 </Paper>
-               </MuiThemeProvider>
+            </MuiThemeProvider>
         )
     }
 }
