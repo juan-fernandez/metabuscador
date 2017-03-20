@@ -239,9 +239,9 @@ export default class Searcher extends React.Component {
 
                  </Paper>
                  </MuiThemeProvider>
-               {
-                  searched_space? list_spaces:""
-               }
+                       {
+                          searched_space? list_spaces:""
+                       }
                   <Footer>
                   </Footer>
              </Grid>

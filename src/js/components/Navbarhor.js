@@ -9,6 +9,8 @@ import {logoutUser} from '../actions/authActions'
 
 import {change_tab} from "../actions/navActions"
 
+import {reset_search} from "../actions/spacesActions"
+
 import {
     Redirect
 } from 'react-router-dom'
@@ -37,14 +39,11 @@ import {
 } from 'material-ui/styles/colors';
 
 
-
-
-
-
 @connect((store) => {
     return {
         auth: store.auth,
-        nav: store.nav
+        nav: store.nav,
+        spaces: store.spaces
     };
 })
 
@@ -52,6 +51,7 @@ import {
 export default class Navbarhor extends React.Component{
     logoutUser(){
         this.props.dispatch(logoutUser())
+        this.props.dispatch(reset_search())
     }
     changeTab(value){
         this.props.dispatch(change_tab(value))

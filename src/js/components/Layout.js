@@ -90,13 +90,21 @@ export default class Layout extends React.Component {
 
                     <Row>
                         <Col xs={12} sm={4} md={3}>
-                            <MyNavbar selected={selected_provider_view} items={provider_view} onMyClick={this.provider_change_view.bind(this)}>
+                            <MyNavbar
+                                selected={selected_provider_view}
+                                items={provider_view}
+                                onMyClick={this.provider_change_view.bind(this)}>
                             </MyNavbar>
                         </Col>
 
 
                         <Col xs={12} sm={8} md={9}>
-                            <MainPanel clickPlanner={this.toggleEvent.bind(this)} moveEvent={this.moveEvent.bind(this)} clickEvent={this.clickEvent.bind(this)} addEvent={this.addEvent.bind(this)} selected={selected_provider_view}>
+                            <MainPanel
+                                clickPlanner={this.toggleEvent.bind(this)}
+                                moveEvent={this.moveEvent.bind(this)}
+                                clickEvent={this.clickEvent.bind(this)}
+                                addEvent={this.addEvent.bind(this)}
+                                selected={selected_provider_view}>
                             </MainPanel>
                         </Col>
                     </Row>

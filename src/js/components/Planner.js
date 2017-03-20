@@ -50,7 +50,9 @@ export default class Planner extends React.Component{
                 let container = element.parentElement.parentElement.parentElement;
                 //console.log(element.parentElement.parentElement)
                 container.addEventListener('click',(event)=>{
+                    console.log("clicked!",event)
                     clickEvent(element.id);
+                    return false;
                 })
             }
 
