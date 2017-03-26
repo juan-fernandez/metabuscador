@@ -6,8 +6,8 @@ state = {
     date_new_event: null,
     clicked_event: -1,
     removing_event: false, //flag to show modal to remove
-    espacios: [
-            {
+    espacios: [],
+      /*      {
                     nombre: "Sala Sinfónica",
                     superficie: 722.25,
                     altura: {
@@ -320,7 +320,7 @@ state = {
                     imagen: ["http://www.lienzonorte.es/public/banners/banner13hall.jpg",
                     "http://www.lienzonorte.es/public/banners/banner13hall.jpg"]
             },
-    ],
+    ],*/
     date_range: {
         from:'2017-03-01 0:00',
         to:'2017-03-30 0:00'

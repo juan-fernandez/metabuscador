@@ -2,6 +2,14 @@ import React from 'react'
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
+import RefreshIndicator from 'material-ui/RefreshIndicator';
+import { connect } from "react-redux"
+
+@connect((store) => {
+    return {
+        spaces: store.spaces,
+    };
+})
 
 export default class NewSpace extends React.Component{
    constructor(props){
@@ -23,10 +31,34 @@ export default class NewSpace extends React.Component{
       })
    }
    render(){
-      const {submit} = this.props;
+      const {submit, spaces} = this.props;
+      const {isAddingSpace, isAdded, response} = spaces;
+      console.log(response)
+      const style = {
+         refresh:{
+             display: 'inline-block',
+             position: 'absolute',
+         },
+         container: {
+             position:'relative'
+         }
+      }
       return(
          <MuiThemeProvider>
+
             <div>
+               {isAddingSpace ?
+               <div style={style.container}>
+                  <RefreshIndicator
+                    size={40}
+                    left={100}
+                    top={100}
+                    loadingColor="#FF9800"
+                    status= {isAddingSpace ? "loading":"hide"}
+                    style={style.refresh}
+                  />
+               </div>
+               :""}
                <TextField
                   id='nombre'
                   hintText="Nombre espacio"
@@ -75,6 +107,7 @@ export default class NewSpace extends React.Component{
                   onChange={this.handleChange.bind(this)}
                   value={this.state.imagen}
                 /><br />
+                <p>{isAdded ? response.data.message:""}</p>
                 <RaisedButton
                   label="Submit"
                   primary={true}

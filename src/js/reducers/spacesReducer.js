@@ -1,7 +1,10 @@
 export default function reducer(
 state = {
     searched_space: false,
-    spaces:[]
+    spaces:[],
+    isAddingSpace: false,
+    isAdded: false,
+    response: ""
 },
 action)
 {
@@ -18,9 +21,34 @@ action)
                 searched_space: false
             }
         }
-        case "ADD_SPACE":{
-           console.log('reducer add space',action.payload)
-           return state
+
+        case "REQUEST_ADD_SPACE":{
+            return {
+               ...state,
+               isAddingSpace: true,
+               isAdded: false
+            }
+         }
+        case "FAILED_ADD_SPACE":{
+            return {
+               ...state,
+               isAdded: false,
+               isAddingSpace: false,
+               response: action.payload.error
+            }
+         }
+        case "SUCCESS_ADD_SPACE":{
+            return {
+               ...state,
+               isAdded: true,
+               isAddingSpace: false,
+               response: action.payload.response,
+               spaces: [...state.spaces, action.payload.space_info]
+            }
+         }
+
+        case "FETCH_SPACES":{
+
         }
     }
 
