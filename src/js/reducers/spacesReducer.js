@@ -1,6 +1,7 @@
 export default function reducer(
 state = {
     searched_space: false,
+    spaces:[]
 },
 action)
 {
@@ -16,6 +17,10 @@ action)
                 ...state,
                 searched_space: false
             }
+        }
+        case "ADD_SPACE":{
+           console.log('reducer add space',action.payload)
+           return state
         }
     }
 

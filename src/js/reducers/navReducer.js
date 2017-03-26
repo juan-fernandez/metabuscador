@@ -8,6 +8,10 @@ state = {
         {
             id: "2",
             text: "Tus espacios",
+        },
+        {
+            id:"3",
+            text: "Añadir espacios"
         }
     ],
     tabs:[

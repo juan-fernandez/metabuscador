@@ -26,6 +26,9 @@ import {addEvent,
       moveEvent,
       toggleEvent} from "../actions/eventsActions"
 
+import {add_space} from "../actions/spacesActions"
+
+
 import Modal from "react-modal"
 
 import { Col, Navbar, Nav, NavItem, Tab, Row, Clearfix, Grid } from "react-bootstrap"
@@ -72,6 +75,10 @@ export default class Layout extends React.Component {
     toggleEvent(id){
         this.props.dispatch(toggleEvent(id));
     }
+    addSpace(space_info){
+      console.log('add space')
+        this.props.dispatch(add_space(space_info))
+    }
 
     render() {
         const {spaces,events, auth, nav} = this.props;
@@ -104,7 +111,9 @@ export default class Layout extends React.Component {
                                 moveEvent={this.moveEvent.bind(this)}
                                 clickEvent={this.clickEvent.bind(this)}
                                 addEvent={this.addEvent.bind(this)}
-                                selected={selected_provider_view}>
+                                selected={selected_provider_view}
+                                newSpace={this.addSpace.bind(this)}
+                                >
                             </MainPanel>
                         </Col>
                     </Row>

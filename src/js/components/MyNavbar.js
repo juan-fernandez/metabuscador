@@ -5,6 +5,7 @@ import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Date from 'material-ui/svg-icons/action/date-range'
 import Building from 'material-ui/svg-icons/social/domain'
+import Plus from 'material-ui/svg-icons/social/plus-one'
 
 export default class MyNavbar extends React.Component{
 
@@ -33,7 +34,7 @@ export default class MyNavbar extends React.Component{
         const {items,onMyClick,selected} = this.props;
         const list = items.map((item)=>{
             return <MenuItem
-                        leftIcon={item.id == 1 ? <Date/>:<Building/>}
+                        leftIcon={item.id == 1 ? <Date/>:(item.id==2 ? <Building/>:<Plus/>)}
                         style={MyStyle.menuItem}
                         primaryText={item.text}
                         onTouchTap={()=>{onMyClick(item.id)}}
