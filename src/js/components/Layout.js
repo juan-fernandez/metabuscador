@@ -26,7 +26,7 @@ import {addEvent,
       moveEvent,
       toggleEvent} from "../actions/eventsActions"
 
-import {add_space} from "../actions/spacesActions"
+import {add_space, fetch_spaces} from "../actions/spacesActions"
 
 
 import Modal from "react-modal"
@@ -44,6 +44,10 @@ import {Link} from 'react-router-dom'
     };
 })
 export default class Layout extends React.Component {
+
+   componentWillMount(){
+      this.props.dispatch(fetch_spaces())
+   }
 
     provider_change_view(id){
         this.props.dispatch(provider_change_view(id))
@@ -76,7 +80,6 @@ export default class Layout extends React.Component {
         this.props.dispatch(toggleEvent(id));
     }
     addSpace(space_info){
-      console.log('add space')
         this.props.dispatch(add_space(space_info))
     }
 

@@ -11,7 +11,8 @@ BigCalendar.setLocalizer(
 
 @connect((store) => {
     return {
-        events: store.events
+        events: store.events,
+        spaces: store.spaces
     };
 })
 export default class Calendar extends React.Component{
@@ -19,9 +20,11 @@ export default class Calendar extends React.Component{
     render(){
 
         const {events} = this.props.events;
+        const {spaces} = this.props.spaces
 
         const {calendar} = this.refs;
-        const {active_events,espacios} = this.props.events;
+        const {active_events} = this.props.events;
+
 
         return(
             <div style={{height:'500px'}}>
@@ -30,7 +33,7 @@ export default class Calendar extends React.Component{
                     events={active_events.map((event_id)=>{
                         let array = event_id.split("-");
                         return{
-                            title: espacios[array[0]].nombre ,
+                            title: spaces[array[0]].nombre ,
                             start: new Date(2017,2,+array[2]+1),
                             end: new Date(2017,2,+array[2]+2),
                             allDay: true,

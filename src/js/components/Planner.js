@@ -4,7 +4,8 @@ import { connect } from "react-redux"
 
 @connect((store) => {
     return {
-        events: store.events
+        events: store.events,
+        spaces: store.spaces
     };
 })
 
@@ -12,7 +13,7 @@ export default class Planner extends React.Component{
     componentDidMount() {
         console.log("did mount")
         const {tabella} = this.refs;
-        const {events,clickEvent} = this.props;
+        const {events,clickEvent,spaces} = this.props;
 
         var data = {};
         data.tableHeader = [];
@@ -26,7 +27,7 @@ export default class Planner extends React.Component{
             date_from.setDate(date_from.getDate()+1)
         }
         data.from = "";
-        data.rows = events.espacios.map((espacio,index_row)=>{
+        data.rows = spaces.spaces.map((espacio,index_row)=>{
             return {
                 rowHeader: '<h2 class="table-h"><a>'+espacio.nombre+'</a></h2>',
                 rowVal:espacio.servicios.map((servicio,index_prop)=>{

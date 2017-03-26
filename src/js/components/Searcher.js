@@ -10,7 +10,7 @@ import {Autosize, Autocomplete, Dropdown, Mask, Combobox } from "react-input-enh
 
 import {FormGroup, Col, FormControl, Carousel, Navbar, Nav, NavItem, Grid, Row, Well, Button} from "react-bootstrap"
 
-import {searchSpace} from "../actions/spacesActions"
+import {fetch_spaces} from "../actions/spacesActions"
 
 import Space from "./Space"
 
@@ -51,16 +51,16 @@ export default class Searcher extends React.Component {
       }
    }
     searchSpace(){
-        this.props.dispatch(searchSpace())
+        this.props.dispatch(fetch_spaces())
     }
      handleChange = (event, index, values) => this.setState({chosen_event:values});
      handleChangeWhere = (event, index, values) => this.setState({chosen_place:values});
 
     render(){
         const {searched_space} = this.props.spaces;
-        const {espacios} = this.props.events;
+        const {spaces} = this.props.spaces;
 
-        const list_spaces = espacios.map((espacio,index)=>
+        const list_spaces = spaces.map((espacio,index)=>
             <Space key={index} info={espacio}/>
         )
 

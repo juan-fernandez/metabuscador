@@ -4,7 +4,9 @@ state = {
     spaces:[],
     isAddingSpace: false,
     isAdded: false,
-    response: ""
+    response: "",
+    isFetchingSpaces: false,
+    isFetchedSpaces: false
 },
 action)
 {
@@ -47,9 +49,35 @@ action)
             }
          }
 
-        case "FETCH_SPACES":{
 
-        }
+        case "REQUEST_FETCH_SPACES":{
+            return {
+               ...state,
+               isFetchingSpaces: true,
+               isFetchedSpaces: false,
+
+            }
+         }
+        case "FAILED_FETCH_SPACES":{
+            return {
+               ...state,
+               isFetchingSpaces: false,
+               isFetchedSpaces: false,
+               response: action.payload.error
+            }
+         }
+        case "SUCCESS_FETCH_SPACES":{
+            return {
+               ...state,
+               isFetchingSpaces: false,
+               isFetchedSpaces: false,
+               searched_space: true,
+               spaces: action.payload.spaces.map((space)=>{
+                  return space.space_info
+               })
+            }
+         }
+
     }
 
     return state
